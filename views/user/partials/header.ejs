@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="eng" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="RsGlobal">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="../images/favicon.png">
+    <!-- Page Title  -->
+    <title>User Investment Dashboard</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="/assets/css/dashlite.css">
+    <link id="skin-default" rel="stylesheet" href="/assets/css/theme.css">
+    <style>
+        table{
+            counter-reset: section;
+        }
+
+        .count::before{
+            counter-increment: section;
+            content: counter(section);
+        }
+
+        .disable{
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="nk-body npc-invest bg-lighter ">
+    <div class="nk-app-root">
+        <!-- wrap @s -->
+        <div class="nk-wrap ">
+            <!-- main header @s -->
+            <div class="nk-header nk-header-fluid is-theme">
+                <div class="container">
+                    <div class="nk-header-wrap">
+                        <div class="nk-menu-trigger mr-sm-2 d-lg-none">
+                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em
+                                    class="icon ni ni-menu"></em></a>
+                        </div>
+                        <div class="nk-header-brand">
+                            <a href="#" class="logo-link">
+                                <img class="logo-light logo-img" src="../images/logo.png"
+                                    srcset="./images/logo2x.png 2x" alt="logo">
+                                <img class="logo-dark logo-img" src="../images/logo-dark.png"
+                                    srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+
+                            </a>
+                        </div><!-- .nk-header-brand -->
+                        <div class="nk-header-menu" data-content="headerNav">
+                            <div class="nk-header-mobile">
+                                <div class="nk-header-brand">
+                                    <a href="#" class="logo-link">
+                                        <img class="logo-light logo-img" src="./images/logo.png"
+                                            srcset="./images/logo2x.png 2x" alt="logo">
+                                        <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                            srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                    </a>
+                                </div>
+                                <div class="nk-menu-trigger mr-n2">
+                                    <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em
+                                            class="icon ni ni-arrow-left"></em></a>
+                                </div>
+                            </div>
+                            <!-- Menu -->
+                            <ul class="nk-menu nk-menu-main">
+                                <li class="nk-menu-item">
+                                    <a href="/dashboard?user=<%= user.username %>" class="nk-menu-link">
+                                        <span class="nk-menu-text">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item active has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-text">Investment</span>
+                                    </a>
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item">
+                                            <a href="/invest/<%= user.username %>" class="nk-menu-link">
+                                                <span class="nk-menu-text">Invest</span>
+                                            </a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a href="/investments/<%= user.username %>" class="nk-menu-link">
+                                                <span class="nk-menu-text">Investment History</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="/withdrawal/<%= user.username %>" class="nk-menu-link">
+                                        <span class="nk-menu-text">Withdraw</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="/referral/<%= user.username%>" class="nk-menu-link">
+                                        <span class="nk-menu-text">Referral</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="/deposit/<%= user.username%>" class="nk-menu-link">
+                                        <span class="nk-menu-text badge badge-warning">Add Funds</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item active has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-text">My Account</span>
+                                    </a>
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item">
+                                            <a href="/profile/<%= user.username %>" class="nk-menu-link">
+                                                <span class="nk-menu-text">Account Settings</span>
+                                            </a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a href="/settings/<%= user.username %>" class="nk-menu-link">
+                                                <span class="nk-menu-text">Security Settings</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- .nk-header-menu -->
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+
+                                <li class="hide-mb-sm"><a href="/logout" class="nk-quick-nav-icon"><em
+                                            class="icon ni ni-signout"></em></a></li>
+                                <li class="dropdown user-dropdown order-sm-first">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                            <div class="user-info d-none d-xl-block">
+                                                <div class="user-status user-status-verified">verified</div>
+                                                <div class="user-name dropdown-indicator"><%= user.firstname %></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div
+                                        class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1 is-light">
+                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                            <div class="user-card">
+                                                <div class="user-avatar">
+                                                    <span><%= user.firstname.substring(0,1)+ user.lastname.substring(0,1) %></span>
+                                                </div>
+                                                <div class="user-info">
+                                                    <span class="lead-text"><%= user.firstname %></span>
+                                                    <span class="sub-text"><%= user.email %></span>
+                                                </div>
+                                                <div class="user-action">
+                                                    <a class="btn btn-icon mr-n2"
+                                                        href="/profile/<%= user.username %>"><em
+                                                            class="icon ni ni-setting"></em></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-inner user-account-info">
+                                            <h6 class="overline-title-alt">Account Balance</h6>
+                                            <div class="user-balance"><%= user.accountbal %> <small
+                                                    class="currency currency-usd">USD</small></div>
+                                            <div class="user-balance-sub">Locked <span><%= user.investment %> <span
+                                                        class="currency currency-usd">USD</span></span></div>
+                                            <a href="#" class="link"><span>Withdraw Balance</span> <em
+                                                    class="icon ni ni-wallet-out"></em></a>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="/profile/<%= user.username %>"><em
+                                                            class="icon ni ni-user-alt"></em><span>Account
+                                                            Settings</span></a></li>
+                                                <li><a href=""><em
+                                                            class="icon ni ni-activity-alt"></em><span>Login
+                                                            Activity</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="/logout"><em
+                                                            class="icon ni ni-signout"></em><span>Sign out</span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li><!-- .dropdown -->
+                            </ul><!-- .nk-quick-nav -->
+                        </div><!-- .nk-header-tools -->
+                    </div><!-- .nk-header-wrap -->
+                </div><!-- .container-fliud -->
+            </div>
+            <script>
+                window.onload = function(){
+                    if(window.history.replaceState){
+                        window.history.replaceState(null,null,window.location.href);
+                    }
+                }
+            </script>

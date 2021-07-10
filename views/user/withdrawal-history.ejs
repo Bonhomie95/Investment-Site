@@ -1,0 +1,181 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+<!-- content @s -->
+<div class="nk-content nk-content-lg nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head">
+                    <div class="nk-block-head-content">
+                        <div class="nk-block-between-md g-4">
+                            <div class="nk-block-head-content">
+                                <h2 class="nk-block-title fw-normal">Withdrawal History</h2>
+                                <div class="nk-block-des">
+                                    <p>Hey Chief here is your Withdrawal History.</p>
+                                </div>
+                            </div><!-- .nk-block-head-content -->
+                            <div class="nk-block-head-content">
+                                <ul class="nk-block-tools gx-3">
+                                    <li><a href="#" class="btn btn-white btn-light"><span>Invest More</span>
+                                            <em class="icon ni ni-arrow-long-right d-none d-sm-inline-block"></em></a>
+                                    </li>
+
+                                </ul>
+                            </div><!-- .nk-block-head-content -->
+                        </div>
+                    </div>
+                </div><!-- .nk-block-head -->
+                <div class="card card-bordered card-preview">
+                    <table class="table table-orders">
+                        <thead class="tb-odr-head">
+                            <tr class="tb-odr-item">
+                                <th class="tb-odr-info">
+                                    <span class="tb-odr-id">Withdraw ID</span>
+                                    <span class="tb-odr-date d-none d-md-inline-block">Date</span>
+                                </th>
+                                <th class="tb-odr-amount">
+                                    <span class="tb-odr-total">Amount</span>
+                                    <span class="tb-odr-status d-none d-md-inline-block">Status</span>
+                                </th>
+                                <th class="tb-odr-action">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-odr-body">
+                            <% withdrawals.forEach(function(withdrawal){%>
+                            <% const withdraw_id = withdrawal.order_id;%>
+                            <%var options = { year: 'numeric', month: 'short', day: 'numeric' };%>
+                            <%const date = withdrawal.submitted.toLocaleDateString("en-US",options);%>
+                            <%const amount = withdrawal.amount;%>
+                            <%const status = withdrawal.status;%>
+                            <tr class="tb-odr-item">
+                                <td class="tb-odr-info">
+                                    <span class="tb-odr-id"><a href="#"><%= withdraw_id %></a></span>
+                                    <!-- <span class="tb-odr-date">23 Jan 2019, 10:45pm</span> -->
+                                    <span class="tb-odr-date"><%= date %></span>
+                                </td>
+                                <td class="tb-odr-amount">
+                                    <span class="tb-odr-total">
+                                        <span class="amount">$<%= amount %>.00</span>
+                                    </span>
+                                    <span class="tb-odr-status">
+                                        <span class="badge badge-dot badge-warning"><%= status %></span>
+                                    </span>
+                                </td>
+                                <td class="tb-odr-action">
+                                    <div class="tb-odr-btns d-none d-md-inline">
+                                        <a href="/withdrawal-details/<%= withdraw_id %>" class="btn btn-sm btn-primary">View</a>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <% })%>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer nk-footer-fluid bg-lighter">
+    <div class="container-xl wide-lg">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#"> GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+<div class="modal fade" tabindex="-1" id="modalWithdraw">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="#" class="form-validate is-alter">
+                    <div class="form-group">
+                        <label class="form-label">Select Balance</label>
+                        <div class="form-control-wrap">
+                            <select class="form-select form-control form-control-lg select2-hidden-accessible"
+                                data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option value="default_option" data-select2-id="3">Select Option</option>
+                                <option value="option_select_name" data-select2-id="20">ROI Balance</option>
+                                <option value="option_select_name" data-select2-id="21">Account Balance</option>
+                                <option value="option_select_name" data-select2-id="22">Referral Bonus</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="withdraw-amount">Amount</label>
+                        <div class="form-control-wrap">
+                            <input type="number" class="form-control" id="withdraw-amount" name="withdraw-amount"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="verify-new-passowrd">Transaction Pin</label>
+                        <div class="form-control-wrap">
+                            <input type="number" class="form-control" id="transaction-pin" name="transaction-pin">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary" data-dismiss="modal"
+                            data-target="#confirm-withdraw" data-toggle="modal"
+                            data-target="#confirm-withdraw">Withdraw</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- @@ Confirm Withdraw Modal @e -->
+<div class="modal fade" tabindex="-1" id="confirm-withdraw">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+            <div class="modal-body modal-body-lg text-center">
+                <div class="nk-modal">
+                    <em class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-check bg-success"></em>
+                    <h4 class="nk-modal-title">Withdrawal Request Submitted successfully!</h4>
+                    <div class="nk-modal-text">
+                        <p class="sub-text">Your withdrawal of <strong>$250</strong> from your <strong>ROI</strong>
+                            Balance is been processed.</p>
+                    </div>
+                    <div class="nk-modal-action-lg">
+                        <ul class="btn-group flex-wrap justify-center g-4">
+                            <li><a href="#" class="btn btn-lg btn-mw btn-primary">More Invest</a></li>
+                            <li><a href="#" class="btn btn-lg btn-mw btn-dim btn-primary"><em
+                                        class="icon ni ni-reports"></em><span>Withdrawal History</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- .modal-body -->
+            <div class="modal-footer bg-lighter">
+                <div class="text-center w-100">
+                    <p>Earn upto 5% for each friend your refer! <a href="#">Invite friends</a></p>
+                </div>
+            </div>
+        </div><!-- .modal-content -->
+    </div><!-- .modla-dialog -->
+</div><!-- .modal -->
+
+</html>

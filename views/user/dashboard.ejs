@@ -1,0 +1,462 @@
+<%- include ('partials/header') -%>
+<% if(type != "" && heading != "" && message != ""){ %>
+<div style="text-align: center;" class="alert alert-<%=type%>">
+    <strong><%=heading%></strong><br><%=message%>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+<%}else{%>
+
+<%}%>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head">
+                                <div class="nk-block-between-md g-3">
+                                    <div class="nk-block-head-content">
+                                        <div class="nk-block-head-sub"><span>Welcome!</span></div>
+                                        <div class="align-center flex-wrap pb-2 gx-4 gy-3">
+                                            <div>
+                                                <h2 class="nk-block-title fw-normal"><%= user.firstname + " " + user.lastname %>
+</h2>
+</div>
+<div><a href="#" class="btn btn-white btn-light">My Plans <em class="icon ni ni-arrow-long-right ml-2"></em></a></div>
+</div>
+<div class="nk-block-des">
+    <p>Hello <%= user.firstname %>, here is the summary of your investment account. Have fun!</p>
+</div>
+</div><!-- .nk-block-head-content -->
+<div class="nk-block-head-content d-none d-md-block">
+    <div class="nk-slider nk-slider-s1">
+        <div class="slider-init" data-slick='{"dots": true, "arrows": false, "fade": true}'>
+            <div class="slider-item">
+                <div class="nk-iv-wg1">
+                    <div class="nk-iv-wg1-sub sub-text">My Active Plans</div>
+                    <%if(invest != null){%>
+                    <h6 class="nk-iv-wg1-info title">
+                        <%= invest.plan + " - " + invest.rate + "%" + " for " + invest.tenure + " days"  %>
+                    </h6>
+                    <% }else{%>
+
+                    <%}%>
+                    <a href="#" class="nk-iv-wg1-link link link-light"><em class="icon ni ni-trend-up"></em> <span>Check
+                            Details</span></a>
+                    <div class="nk-iv-wg1-progress">
+                        <div class="progress-bar bg-primary" data-progress="80"></div>
+                    </div>
+                </div>
+            </div><!-- .slider-item -->
+
+        </div>
+        <div class="slider-dots"></div>
+    </div><!-- .nk-slider -->
+</div><!-- .nk-block-head-content -->
+</div><!-- .nk-block-between -->
+</div><!-- .nk-block-head -->
+<div class="nk-block">
+    <div class="nk-news card card-bordered">
+        <div class="card-inner">
+            <div class="nk-news-list">
+                <a class="nk-news-item" href="#">
+                    <div class="text-justify">
+                        <p><b>NOTICE! NOTICE!! NOTICE!!!</b><br>
+                            Dear Valued Investors,
+                            We are beyond grateful for your continued loyalty, believe and trust you have in us. We still promise to keep maintaining our trustworthy, reliability and ensure that our clients sleep with both eyes closed.
+                            In the sense of this, the company has came up with a new policy in other to make our clients happy and make things go well for the company too. As we all knew that after collecting ROI for one year, the company automatically returns 100% of the capital invested to the investor. But due to the increment of exchanger rate and Nigeria new policy on crypto which makes it somehow difficult for us to exchange. We therefore decided to returns 50% of the capital invested to the investors after they have collected their ROI for one year. 
+                             NOTE: Investor  can only receive their capital after a duration of one month they have requested for it.
+                            Thanks for choosing RSglobal.</p>
+                        <em class="icon ni ni-external"></em>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div><!-- .card -->
+</div><!-- .nk-block -->
+<div class="nk-block">
+    <div class="row gy-gs">
+        <div class="col-md-6 col-lg-4">
+            <div class="nk-wg-card is-dark card card-bordered">
+                <div class="card-inner">
+                    <div class="nk-iv-wg2">
+                        <div class="nk-iv-wg2-title">
+                            <h6 class="title">Account Balance <em class="icon ni ni-info"></em></h6>
+                        </div>
+                        <div class="nk-iv-wg2-text">
+                            <div class="nk-iv-wg2-amount">$<%= user.accountbal.toLocaleString() %>
+                    <!-- <span class="change up"><span class="sign"></span>3.4%</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- .card -->
+</div>
+<!-- <div class="col-md-6 col-lg-3">
+    <div class="nk-wg-card is-s1 card card-bordered">
+        <div class="card-inner">
+            <div class="nk-iv-wg2">
+                <div class="nk-iv-wg2-title">
+                    <h6 class="title">Stage <em class="icon ni ni-info"></em></h6>
+                </div>
+                <div class="nk-iv-wg2-text">
+                    <div class="nk-iv-wg2-amount"><%= user.stage %></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="col-md-6 col-lg-4">
+    <div class="nk-wg-card is-s1 card card-bordered">
+        <div class="card-inner">
+            <div class="nk-iv-wg2">
+                <div class="nk-iv-wg2-title">
+                    <h6 class="title">Total Investment <em class="icon ni ni-info"></em></h6>
+                </div>
+                <div class="nk-iv-wg2-text">
+                    <%if(invest != null){%>
+                    <div class="nk-iv-wg2-amount"> $<%= invest.amount %></div>
+                    <% }else{%>
+                    <div class="nk-iv-wg2-amount"> $0.00</div>
+                    <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .card -->
+        </div><!-- .col -->
+        <div class="col-md-6 col-lg-4">
+            <div class="nk-wg-card is-s3 card card-bordered">
+                <div class="card-inner">
+                    <div class="nk-iv-wg2">
+                        <div class="nk-iv-wg2-title">
+                            <h6 class="title">Profit Obtainable (ROI) <em class="icon ni ni-info"></em></h6>
+                        </div>
+                        <div class="nk-iv-wg2-text">
+                            <%if(invest != null){%>
+                    <%if(invest.plan == "Bronze"){%>
+                    <div class="text-danger nk-iv-wg2-amount">$<%= invest.roi * 12%><span class="change up"><span
+                                class="sign"></span>Total in 12 Months</span>
+                    </div>
+                    <%}else if(invest.plan == "Silver"){%>
+                    <div class="text-danger nk-iv-wg2-amount">$<%= invest.roi * 4%><span class="change up"><span
+                                class="sign"></span>Total in 12 Months</span>
+                    </div>
+                    <%}else if(invest.plan == "Gold"){%>
+                    <div class="text-danger nk-iv-wg2-amount">$<%= invest.roi%><span class="change up"><span
+                                class="sign"></span>Total in 12 Months</span>
+                    </div>
+                    <%}%>
+                            <% }else{%>
+                    <div class="nk-iv-wg2-amount"> $0.00
+                        <!--<span class="change down"><span class="sign"></span>1.4%</span>-->
+                    </div>
+                    <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .card -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+</div><!-- .nk-block -->
+<div class="nk-block">
+    <div class="row gy-gs">
+        <div class="col-md-6 col-lg-4">
+            <div class="nk-wg-card card card-bordered h-100">
+                <div class="card-inner h-100">
+                    <div class="nk-iv-wg2">
+                        <div class="nk-iv-wg2-title">
+                            <h6 class="title">Balance in Account</h6>
+                        </div>
+                        <div class="nk-iv-wg2-text">
+                            <script>
+                                window.onload = function () {
+                                    var personal_pv = document.getElementById('ppv').textContent;
+                                    var direct_pv = document.getElementById('dpv').textContent;
+                                    var cumulative = parseInt(personal_pv) + parseInt(direct_pv);
+                                    document.getElementById('cpv').textContent = parseInt(cumulative);
+                                    var bal = parseInt(document.getElementById('balance').textContent);
+                                    var acq_roi = parseInt(document.getElementById('acqd_roi').textContent);
+                                    var investment = parseInt(document.getElementById('invest_amount').textContent);
+                                    var referral_earning = parseInt(document.getElementById('referal_amount').textContent);
+                                    var total = bal + acq_roi + investment + referral_earning;
+                                    document.getElementById('total_bal').textContent = total;
+                                    document.getElementById('available_bal').textContent = total - parseInt(document.getElementById('locked').textContent);
+
+                                }
+                            </script>
+                            <div class="nk-iv-wg2-amount ui-v2">$<span
+                                    id="balance"><%= user.accountbal %></span></div>
+                <ul class="nk-iv-wg2-list">
+                    <li>
+                        <span class="item-label">ROI Balance($)</span>
+                        <span id="acqd_roi" class="item-value"><%= user.roi_earning %></span>
+                    </li>
+                    <li>
+                        <span class="item-label">Invested Funds($)</span>
+                        <%if(invest != null){%>
+                        <span id="invest_amount" class="item-value"><%= invest.amount %></span>
+                        <% }else{%>
+                        <span id="invest_amount" class="item-value">0</span>
+                        <%}%>
+                                </li>
+                                <li>
+                                    <span class="item-label">Referral Earnings($)</span>
+                                    <span id="referal_amount"
+                                        class="item-value"><%= user.referral_earning %></span>
+                    </li>
+                    <li class="total">
+                        <span class="item-label">Total($)</span>
+                        <span id="total_bal" class="item-value"></span>
+                    </li>
+                    <li class="total">
+                        <span class="item-label">Locked Balance($)</span>
+                        <%if(invest != null){%>
+                        <span id="locked" class="item-value"><%= invest.amount %></span>
+                        <% }else{%>
+                        <span id="locked" class="item-value">0</span>
+                        <%}%>
+                                </li>
+                                <li class="total">
+                                    <span class="item-label">Available Balance($)</span>
+                                    <span id="available" class="item-value">$ <span id="available_bal"></span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nk-iv-wg2-cta">
+                            <a href="/withdrawal/<%= user.username %>" class="btn btn-primary btn-lg
+                        btn-block">Withdraw Funds</a>
+            </div>
+        </div>
+    </div>
+</div><!-- .card -->
+</div><!-- .col -->
+<div class="col-md-6 col-lg-4">
+    <div class="nk-wg-card card card-bordered h-100">
+        <div class="card-inner h-100">
+            <div class="nk-iv-wg2">
+                <div class="nk-iv-wg2-title">
+                    <h6 class="title">Profit Earned (ROI) <em class="icon ni ni-info text-primary"></em></h6>
+                </div>
+                <div class="nk-iv-wg2-text">
+                    <%if(invest != null){%>
+                    <%if(invest.plan == "Bronze"){%>
+                    <div class="text-warning nk-iv-wg2-amount ui-v2">$<%= invest.roi * invest.counter%>
+                        <span class="change up"><span class="sign"></span><%=invest.counter%> / 12 Returns</span>
+                    </div>
+                    <%}else if(invest.plan == "Silver"){%>
+                    <div class="text-warning nk-iv-wg2-amount ui-v2">$<%= invest.roi * invest.counter%>
+                        <span class="change up"><span class="sign"></span><%=invest.counter%> / 4 Returns</span>
+                    </div>
+                    <%}else if(invest.plan == "Gold"){%>
+                    <div class="text-warning nk-iv-wg2-amount ui-v2">$<%= invest.roi * invest.counter%>
+                        <span class="change up"><span class="sign"></span><%=invest.counter%> / 1 Returns</span>
+                    </div>
+                    <%}%>
+                            <% }else{%>
+                    <div class="nk-iv-wg2-amount ui-v2">$0.00
+                        <!--<span class="change up"><span class="sign"></span>4.5%</span>-->
+                    </div>
+                    <%}%>
+                            <ul class="nk-iv-wg2-list">
+                                <li>
+                                    <span class="item-label">Profits (ROI)</span>
+                                     <%if(invest != null){%>
+                    <span class="item-value">$<%= invest.roi * invest.counter %></span>
+                    <% }else{%>
+                    <span class="item-value">$0.00</span>
+                    <%}%>
+                                </li>
+                                <li>
+                                    <span class="item-label">Referral Bonus</span>
+                                    <span class="item-value">$<%= user.referral_earning %></span>
+                    </li>
+                    <li>
+                        <span class="item-label">Rewards</span>
+                        <span class="item-value">0.00</span>
+                    </li>
+                    <li class="total">
+                        <span class="item-label">Total Profit</span>
+                        <span class="item-value">$0.00</span>
+                    </li>
+                    <hr>
+                    <li>
+                        <span class="item-label">Personal PV (PPV) </span>
+                        <%if(user.ppv != 0){%>
+                            <span id="ppv" class="item-value"><%= user.ppv %></span>
+                        <%}else{%>
+                            <span id="ppv" class="item-value">0</span>
+                        <%}%>
+                    </li>
+                    <li>
+                        <span class="item-label">Direct PV (DPV)</span>
+                        <%if(user.dpv != 0){%>
+                            <span id="ppv" class="item-value"><%= user.dpv %></span>
+                        <%}else{%>
+                            <span id="dpv" class="item-value">0</span>
+                        <%}%>
+                    </li>
+                    <!-- <li>
+                        <span class="item-label">InDirect PV (IPV)</span>
+                        <%if(user.ipv != 0 || undefined){%>
+                            <span id="ipv" class="item-value"><%= user.ipv %></span>
+                        <%}else{%>
+                            <span id="ipv" class="item-value">0</span>
+                        <%}%>
+                    </li> -->
+                    <li class="total">
+                        <span class="item-label">Cummulative PV (CPV)</span>
+                        <span id="cpv" class="item-value">0</span>
+                    </li>
+                    </ul>
+                </div>
+                <div class="nk-iv-wg2-cta">
+                    <a href="#" class="btn btn-primary btn-lg btn-block">Invest & Earn</a>
+                    <div class="cta-extra">Earn up to 5% <a href="/invest/<%= user.username %>"
+                            class="link link-dark">Refer friend!</a></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .card -->
+</div><!-- .col -->
+<div class="col-md-12 col-lg-4">
+    <div class="nk-wg-card card card-bordered h-100">
+        <div class="card-inner h-100">
+            <div class="nk-iv-wg2">
+                <div class="nk-iv-wg2-title">
+                    <h6 class="title">My Investment</h6>
+                </div>
+                <div class="nk-iv-wg2-text">
+                    <%if(invest != null){%>
+                    <div class="nk-iv-wg2-amount ui-v2">1 <span class="sub"></span> Active</div>
+                    <ul class="nk-iv-wg2-list">
+                        <li>
+                            <%if(invest.plan == "Bronze"){%>
+                            <span class="item-label"><a href="#">Bronze</a> <small>
+                                    - 15% Monthly for 12 Months
+                                </small></span>
+                            <%}else if(invest.plan == "Silver"){%>
+                            <span class="item-label"><a href="#">Silver</a> <small>
+                                    - 50% Quarterly for 12 Months
+                                </small></span>
+                            <%}else if(invest.plan == "Gold"){%>
+                            <span class="item-label"><a href="#">Gold</a> <small>
+                                    - 300% Annually for 12 Months
+                                </small></span>
+                            <%}%>
+                                                <span class="item-value">$<%= invest.amount %></span>
+                        </li>
+                    </ul>
+                    <% }else{%>
+                    <div class="nk-iv-wg2-amount ui-v2">No<span class="sub"></span>Active Plan</div>
+                    <ul class="nk-iv-wg2-list">
+                        <li>
+                            <span class="item-label"><small>
+                                    You do not have any active investment at the moment.
+                                </small></span>
+                        </li>
+                    </ul>
+                    <%}%>
+                        </div>
+                        <div class="nk-iv-wg2-cta">
+                            <a href="/investments/<%= user.username %>" class="btn btn-light btn-lg btn-block">See all
+                    Investment</a>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- .card -->
+</div><!-- .col -->
+</div><!-- .row -->
+</div><!-- .nk-block -->
+<div class="nk-block">
+    <div class="card card-bordered">
+        <div class="nk-refwg">
+            <div class="nk-refwg-invite card-inner">
+                <div class="nk-refwg-head g-3">
+                    <div class="nk-refwg-title">
+                        <h5 class="title">Refer & Earn</h5>
+                        <div class="title-sub">Use the below link to invite your friends.</div>
+                    </div>
+                    <div class="nk-refwg-action">
+                        <a href="#" class="btn btn-primary">Invite</a>
+                    </div>
+                </div>
+                <div class="nk-refwg-url">
+                    <div class="form-control-wrap">
+                        <div class="form-clip clipboard-init" data-clipboard-target="#refUrl" data-success="Copied"
+                            data-text="Copy Link"><em class="clipboard-icon icon ni ni-copy"></em> <span
+                                class="clipboard-text">Copy Link</span></div>
+                        <div class="form-icon">
+                            <em class="icon ni ni-link-alt"></em>
+                        </div>
+                        <input type="text" class="form-control copy-text" id="refUrl"
+                            value="https://app.rsglobal.com.ng/register/<%= user._id %>">
+                    </div>
+                </div>
+            </div>
+            <div class="nk-refwg-stats card-inner bg-lighter">
+                <div class="nk-refwg-group g-3">
+                    <div class="nk-refwg-name">
+                        <h6 class="title">My Referral <em class="icon ni ni-info" data-toggle="tooltip"
+                                data-placement="right" title="Referral Informations"></em></h6>
+                    </div>
+                    <div class="nk-refwg-info g-3">
+                        <div class="nk-refwg-sub">
+                            <div class="title"><%= user.referred_count %></div>
+                            <div class="sub-text">Total Joined</div>
+                        </div>
+                        <div class="nk-refwg-sub">
+                            <div class="title">$<%= user.referral_earning %></div>
+                            <div class="sub-text">Referral Earn</div>
+                        </div>
+                    </div>
+                    <div class="nk-refwg-more dropdown mt-n1 mr-n1">
+                        <a href="#" class="btn btn-icon btn-trigger" data-toggle="dropdown"><em
+                                class="icon ni ni-more-h"></em></a>
+                        <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
+                            <ul class="link-list-plain sm">
+                                <li><a href="/referral/<%= user.username%>">Referral</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nk-refwg-ck">
+                    <canvas class="chart-refer-stats" id="refBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- .card -->
+</div><!-- .nk-block -->
+</div>
+</div>
+</div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer nk-footer-fluid bg-lighter">
+    <div class="container-xl wide-lg">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 RSGloabal.com.ng Designed by <a href="#"> GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

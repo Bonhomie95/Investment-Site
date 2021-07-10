@@ -1,0 +1,247 @@
+<%- include ('partials/header') -%>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head">
+                                <div class="nk-block-head-content">
+                                    <div class="nk-block-head-sub"><span>My Profile</span></div>
+                                    <h2 class="nk-block-title fw-normal">Account Info</h2>
+                                    <div class="nk-block-des">
+                                        <p>You have full control to manage your own account setting. <span
+                                                class="text-primary"><em class="icon ni ni-info"></em></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nk-nav nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/profile/<%= user.username %>">Personal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/settings/<%= user.username %>">Security<span
+                                            class="d-none s-sm-inline"> Setting</span></a>
+                                </li>
+                            </ul><!-- .nav-tabs -->
+                            <div class="nk-block">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h5 class="nk-block-title">Personal Information</h5>
+                                        <div class="nk-block-des">
+                                            <p>Basic info, like your name and address, that you use on RSGLOBAL
+                                                Platform.</p>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <div class="card card-bordered">
+                                    <div class="nk-data data-list">
+                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit">
+                                            <div class="data-col">
+                                                <span class="data-label">Full Name</span>
+                                                <span class="data-value"><%= user.firstname + " " + user.lastname %></span>
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more"><em
+                                                        class="icon ni ni-forward-ios"></em></span></div>
+                                        </div>
+                                        <div class="data-item">
+                                            <div class="data-col">
+                                                <span class="data-label">Email</span>
+                                                <span class="data-value"><%= user.email %></span>
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more disable"><em
+                                                        class="icon ni ni-lock-alt"></em></span></div>
+                                        </div>
+                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit">
+                                            <div class="data-col">
+                                                <span class="data-label">Phone Number</span>
+                                                <span class="data-value text-soft"><%= user.phonenumber %></span>
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more"><em
+                                                        class="icon ni ni-forward-ios"></em></span></div>
+                                        </div>
+                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit">
+                                            <div class="data-col">
+                                                <span class="data-label">Date of Birth</span>
+                                                <span class="data-value"><%= user.dateofbirth %></span>
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more"><em
+                                                        class="icon ni ni-forward-ios"></em></span></div>
+                                        </div>
+                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit"
+                                            data-tab-target="#">
+                                            <div class="data-col">
+                                                <span class="data-label">Address</span>
+                                                <span class="data-value"><%= user.address %></span>
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more"><em
+                                                        class="icon ni ni-forward-ios"></em></span></div>
+                                        </div>
+                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit"
+                                            data-tab-target="#">
+                                            <div class="data-col">
+                                                <span class="data-label">Bank Account Details</span>
+                                                <span class="data-value"><%= user.bankname %><br>
+                                                <%= user.accountname %> <br> <%= user.banknumber %></span>
+
+                                            </div>
+                                            <div class="data-col data-col-end"><span class="data-more"><em
+                                                        class="icon ni ni-forward-ios"></em></span></div>
+                                        </div>
+                                    </div><!-- .nk-data -->
+                                </div><!-- .card -->
+                                <!-- Another Section -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer nk-footer-fluid bg-lighter">
+                <div class="container-xl wide-lg">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#"> GGDC</a>
+                        </div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- @@ Profile Edit Modal @e -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="profile-edit">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                <div class="modal-body modal-body-lg">
+                    <h5 class="title">Update Profile</h5>
+                    <ul class="nk-nav nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#personal">Personal</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#address">Address</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#bankdetails">Bank Account</a>
+                        </li> -->
+                    </ul><!-- .nav-tabs -->
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="personal">
+                            <form action="/profile/<%=user.username%>" method="post">
+                                <div class="row gy-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="full-name">Full Name</label>
+                                            <input type="text" class="form-control form-control-lg" id="full-name"
+                                                disabled name="name" value="<%= user.firstname + " " + user.lastname %>" placeholder="Enter Full name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="full-name">Username</label>
+                                            <input type="text" class="form-control form-control-lg" name="username"
+                                               disabled value="<%= user.username %>" placeholder="Enter Full name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="phone-no">Date of Birth</label>
+                                            <input type="text" class="form-control form-control-lg" id="dob" name="dob" value=""
+                                                placeholder="Date of Birth">
+                                                <span class="text-info"><strong>Format: 01/01/1990</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="phone-no">Phone Number</label>
+                                            <input type="text" class="form-control form-control-lg" id="phone-no"
+                                                name="phone_no" value="" placeholder="Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p class="text-primary"><strong>Address</strong></p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label" for="address-l1">Address Line</label>
+                                            <input type="text" class="form-control form-control-lg" id="address"
+                                                name="address" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="address-st">State</label>
+                                            <input type="text" class="form-control form-control-lg" id="state"
+                                                name="state" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="bank-name">Country</label>
+                                            <input type="text" class="form-control form-control-lg" id="country"
+                                                name="country" value="Nigeria">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p class="text-primary"><strong>Bank Details</strong></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="bank-name">Bank Name</label>
+                                            <input type="text" class="form-control form-control-lg" id="bank-name"
+                                                name="bank_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="account-name">Account Name</label>
+                                            <input type="text" class="form-control form-control-lg" name="account_name"
+                                                id="account_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="address-l1">Account Number</label>
+                                            <input type="number" class="form-control form-control-lg" maxlength="10"
+                                                name="account_number" id="account-number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                            <li>
+                                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-dismiss="modal" class="link link-light">Cancel</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- .tab-pane -->
+                    </div><!-- .tab-content -->
+                </div><!-- .modal-body -->
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- .modal -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

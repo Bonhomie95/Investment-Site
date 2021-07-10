@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="eng" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Rsglobal">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="../images/favicon.png">
+    <!-- Page Title  -->
+    <title>Admin Investment Dashboard | RSGLOBAL.COM.NG</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="../assets/css/dashlite.css?ver=1.4.0">
+    <link id="skin-default" rel="stylesheet" href="../assets/css/theme.css?ver=1.4.0">
+    <style>
+        table {
+            counter-reset: section;
+        }
+    
+        .count::before {
+            counter-increment: section;
+            content: counter(section);
+        }
+    
+        .disable {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu">
+                <div class="nk-sidebar-element nk-sidebar-head">
+                    <div class="nk-sidebar-brand">
+                        <a href="dashboard.html" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="../images/logo.png" alt="logo">
+                            <img class="logo-dark logo-img" src="../images/logo-dark.png"
+                                 alt="logo-dark">
+
+                        </a>
+                    </div>
+                    <div class="nk-menu-trigger mr-n2">
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
+                                class="icon ni ni-arrow-left"></em></a>
+                    </div>
+                </div><!-- .nk-sidebar-element -->
+                <div class="nk-sidebar-element">
+                    <div class="nk-sidebar-content">
+                        <div class="nk-sidebar-menu" data-simplebar>
+                            <ul class="nk-menu">
+
+                                <li class="nk-menu-item">
+                                    <a href="/rsglobal131220-83764762387592768352742587" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
+                                        <span class="nk-menu-text">Dashboard</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Investment Panel</h6>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="/rsglobal131220-investments" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-tranx"></em></span>
+                                        <span class="nk-menu-text">Investment History</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Withdraw Panel</h6>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span>
+                                        <span class="nk-menu-text">Withdrawal Request</span>
+                                    </a>
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item">
+                                            <a href="/rsglobal131220-withdrawal" class="nk-menu-link"><span
+                                                    class="nk-menu-text">Pending Withdrawal</span></a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a href="/rsglobal131220-processed" class="nk-menu-link"><span
+                                                    class="nk-menu-text">Processed Withdrawal</span></a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a href="/rsglobal131220-declined" class="nk-menu-link"><span
+                                                    class="nk-menu-text">Declined Withdrawal</span></a>
+                                        </li>
+                                    </ul><!-- .nk-menu-sub -->
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">User Management</h6>
+                                </li><!-- .nk-menu-heading -->
+                                <li class="nk-menu-item">
+                                    <a href="/rsglobal131220-allusers" class="nk-menu-link ">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                                        <span class="nk-menu-text">Manage users</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Misc Pages</h6>
+                                </li><!-- .nk-menu-heading -->
+                                <li class="nk-menu-item ">
+                                    <a href="/131220generate-epin" class="nk-menu-link ">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-signin"></em></span>
+                                        <span class="nk-menu-text">E-Pin</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Account Panel</h6>
+                                </li><!-- .nk-menu-heading -->
+                                <li class="nk-menu-item">
+                                    <a href="#" class="nk-menu-link ">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                                        <span class="nk-menu-text">User Profile</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="#" class="nk-menu-link ">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-security"></em></span>
+                                        <span class="nk-menu-text">Security</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+
+
+                            </ul><!-- .nk-menu -->
+                        </div><!-- .nk-sidebar-menu -->
+                    </div><!-- .nk-sidebar-content -->
+                </div><!-- .nk-sidebar-element -->
+            </div>
+                        <!-- sidebar @e -->
+                        <!-- wrap @s -->
+                        <div class="nk-wrap ">
+                            <!-- main header @s -->
+                            <div class="nk-header nk-header-fixed is-light">
+                                <div class="container-fluid">
+                                    <div class="nk-header-wrap">
+                                        <div class="nk-menu-trigger d-xl-none ml-n1">
+                                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                                    class="icon ni ni-menu"></em></a>
+                                        </div>
+                                        <div class="nk-header-brand d-xl-none">
+                                            <a href="#" class="logo-link">
+                                                <img class="logo-light logo-img" src="../images/logo.png"
+                                                    alt="logo">
+                                                <img class="logo-dark logo-img" src="../images/logo-dark.png"
+                                                     alt="logo-dark">
+                                            </a>
+                                        </div><!-- .nk-header-brand -->
+                                        <div class="nk-header-news d-none d-xl-block">
+                                            <div class="nk-news-list">
+                                                <a class="nk-news-item" href="#">
+                                                    <div class="nk-news-icon">
+                                                        <em class="icon ni ni-card-view"></em>
+                                                    </div>
+                                                    <div class="nk-news-text">
+                                                        <p>Do you know the latest update of 2019? <span> A overview of our is now
+                                                                available on YouTube</span></p>
+                                                        <em class="icon ni ni-external"></em>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div><!-- .nk-header-news -->
+                                        <div class="nk-header-tools">
+                                            <ul class="nk-quick-nav">
+                                                <li class="dropdown user-dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <div class="user-toggle">
+                                                            <div class="user-avatar sm">
+                                                                <em class="icon ni ni-user-alt"></em>
+                                                            </div>
+                                                            <div class="user-info d-none d-md-block">
+                                                                <div class="user-status">Administrator</div>
+                                                                <div class="user-name dropdown-indicator">Administrator</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
+                                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                                            <div class="user-card">
+                                                                <div class="user-avatar">
+                                                                    <span>AB</span>
+                                                                </div>
+                                                                <div class="user-info">
+                                                                    <span class="lead-text">Administrator</span>
+                                                                    <span class="sub-text">Admin@rsglobal.com.ng</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dropdown-inner">
+                                                            <ul class="link-list">
+                                                                <li><a href="#"><em
+                                                                            class="icon ni ni-user-alt"></em><span>View
+                                                                            Profile</span></a></li>
+                                                                <li><a href="#"><em
+                                                                            class="icon ni ni-setting-alt"></em><span>Account
+                                                                            Setting</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="dropdown-inner">
+                                                            <ul class="link-list">
+                                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign
+                                                                            out</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li><!-- .dropdown -->
+                                                <li class="dropdown notification-dropdown mr-n1">
+                                                    <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                                        <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em>
+                                                        </div>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right dropdown-menu-s1">
+                                                        <div class="dropdown-head">
+                                                            <span class="sub-title nk-dropdown-title">Notifications</span>
+                                                            <a href="#">Mark All as Read</a>
+                                                        </div>
+                                                        <div class="dropdown-body">
+                                                            <div class="nk-notification">
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">You have requested to
+                                                                            <span>Widthdrawl</span></div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">Your <span>Deposit
+                                                                                Order</span> is placed</div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">You have requested to
+                                                                            <span>Widthdrawl</span></div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">Your <span>Deposit
+                                                                                Order</span> is placed</div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">You have requested to
+                                                                            <span>Widthdrawl</span></div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="nk-notification-item dropdown-inner">
+                                                                    <div class="nk-notification-icon">
+                                                                        <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                                                    </div>
+                                                                    <div class="nk-notification-content">
+                                                                        <div class="nk-notification-text">Your <span>Deposit
+                                                                                Order</span> is placed</div>
+                                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .nk-notification -->
+                                                        </div><!-- .nk-dropdown-body -->
+                                                        <div class="dropdown-foot center">
+                                                            <a href="#">View All</a>
+                                                        </div>
+                                                    </div>
+                                                </li><!-- .dropdown -->
+                                            </ul><!-- .nk-quick-nav -->
+                                        </div><!-- .nk-header-tools -->
+                                    </div><!-- .nk-header-wrap -->
+                                </div><!-- .container-fliud -->
+                            </div>
+                            

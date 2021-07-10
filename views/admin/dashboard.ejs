@@ -1,0 +1,497 @@
+<%- include ('partials/header') -%>
+    <!-- main header @e -->
+    <!-- content @s -->
+    <div class="nk-content ">
+        <div class="container-fluid">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head nk-block-head-sm">
+                        <div class="nk-block-between">
+                            <div class="nk-block-head-content">
+                                <h3 class="nk-block-title page-title">Admin Investment Dashboard</h3>
+                                <div class="nk-block-des text-soft">
+                                    <p>Welcome Admin</p>
+                                </div>
+                            </div><!-- .nk-block-head-content -->
+
+                        </div><!-- .nk-block-between -->
+                    </div><!-- .nk-block-head -->
+                    <div class="nk-block">
+                        <div class="row g-gs">
+                            <div class="col-md-4">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner">
+                                        <div class="card-title-group align-start mb-0">
+                                            <div class="card-title">
+                                                <h6 class="subtitle">Total Investment</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip"
+                                                    data-placement="left" title="Total Invested"></em>
+                                            </div>
+                                        </div>
+                                        <div class="card-amount">
+                                            <% investments.forEach((itotal)=>{ %>
+                                                <span class="amount"> <%=itotal.amount.toLocaleString()%> <span
+                                                        class="currency currency-usd">USD</span>
+                                                </span>
+                                            <% }) %>
+                                                <span class="change up text-danger"><em
+                                                        class="icon ni ni-arrow-long-up"></em>1.93%</span>
+                                        </div>
+                                        <div class="invest-data">
+                                            <div class="invest-data-amount g-2">
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Week</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Month</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="invest-data-ck">
+                                                <canvas class="iv-data-chart" id="totalDeposit"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+                            <div class="col-md-4">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner">
+                                        <div class="card-title-group align-start mb-0">
+                                            <div class="card-title">
+                                                <h6 class="subtitle">Total Withdraw</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip"
+                                                    data-placement="left" title="Total Withdrawn"></em>
+                                            </div>
+                                        </div>
+                                        <div class="card-amount">
+                                            <% withdrawals.forEach((wtotal)=>{ %>
+                                                <span class="amount">
+                                                    <%=wtotal.amount.toLocaleString()%> <span class="currency currency-usd">USD</span>
+                                                </span>
+                                                <% }) %>
+                                            <span class="change down text-danger"><em
+                                                    class="icon ni ni-arrow-long-down"></em>1.93%</span>
+                                        </div>
+                                        <div class="invest-data">
+                                            <div class="invest-data-amount g-2">
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Week</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Month</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="invest-data-ck">
+                                                <canvas class="iv-data-chart" id="totalWithdraw"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+                            <div class="col-md-4">
+                                <div class="card card-bordered  card-full">
+                                    <div class="card-inner">
+                                        <div class="card-title-group align-start mb-0">
+                                            <div class="card-title">
+                                                <h6 class="subtitle">Balance in All Account</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip"
+                                                    data-placement="left" title="Total Balance in Account"></em>
+                                            </div>
+                                        </div>
+                                        <div class="card-amount">
+                                            <% accounts.forEach((atotal)=>{ %>
+                                                <span class="amount">
+                                                    <%=atotal.amount.toLocaleString()%> <span class="currency currency-usd">USD</span>
+                                                </span>
+                                                <% }) %>
+                                            <!-- <span class="amount"> 79,358.50 <span
+                                                    class="currency currency-usd">USD</span>
+                                            </span> -->
+                                        </div>
+                                        <div class="invest-data">
+                                            <div class="invest-data-amount g-2">
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Week</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                                <div class="invest-data-history">
+                                                    <div class="title">This Month</div>
+                                                    <div class="amount">0.00 <span
+                                                            class="currency currency-usd">USD</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="invest-data-ck">
+                                                <canvas class="iv-data-chart" id="totalBalance"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+                            <div class="col-md-6 col-xxl-4">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner">
+                                        <div class="card-title-group mb-1">
+                                            <div class="card-title">
+                                                <h6 class="title">Investment Overview</h6>
+                                                <p>The investment overview of your platform. <a href="#">All
+                                                        Investment</a></p>
+                                            </div>
+                                        </div>
+                                        <ul class="nav nav-tabs nav-tabs-card nav-tabs-xs">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab"
+                                                    href="#overview">Overview</a>
+                                            </li>
+                                            <!-- <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#thisyear">This Year</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#alltime">All Time</a>
+                                            </li> -->
+                                        </ul>
+                                        <div class="tab-content mt-0">
+                                            <div class="tab-pane active" id="overview">
+                                                <div class="invest-ov gy-2">
+                                                    <div class="subtitle">Current Active Investment</div>
+                                                    <div class="invest-ov-details">
+                                                        <div class="invest-ov-info">
+                                                            <% curInvestment.forEach((curtotal)=>{ %>
+                                                                <div class="amount"><%=curtotal.amount.toLocaleString()%> <span class="currency currency-usd">USD</span></div>
+                                                                <div class="title">Amount</div>
+                                                                <% }) %>
+                                                           
+                                                        </div>
+                                                        <div class="invest-ov-stats">
+                                                            <div><span class="amount"></span><span
+                                                                    class="change up text-danger"><em
+                                                                        class="icon ni ni-arrow-long-up"></em></span>
+                                                            </div>
+                                                            <div class="title"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="invest-ov-details">
+                                                        <div class="invest-ov-info">
+                                                            <% totalRoi.forEach((totalroi)=>{ %>
+                                                                <div class="amount"><%=totalroi.amount.toLocaleString()%> <span class="currency currency-usd">USD</span></div>
+                                                                <% }) %>
+                                                            <div class="title">Paid Profit</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="invest-ov gy-2">
+                                                    <div class="subtitle">Total No. of Active Investments</div>
+                                                    <div class="invest-ov-details">
+                                                        <div class="invest-ov-info">
+                                                            <div class="amount"><span
+                                                                    class="currency currency-usd"></span></div>
+                                                            <div class="title"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-md-6 col-xxl-4">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner d-flex flex-column h-100">
+                                        <div class="card-title-group mb-3">
+                                            <div class="card-title">
+                                                <h6 class="title">Top Invested Plan</h6>
+                                                <!-- <p>In last 30 days top invested schemes.</p> -->
+                                            </div>
+
+                                        </div>
+                                        <div class="progress-list gy-3">
+                                            <div class="progress-wrap">
+                                                <div class="progress-text">
+                                                    <div class="progress-label">Bronze Plan</div>
+                                                    <div class="progress-amount"></div>
+                                                </div>
+                                                <div class="progress progress-md">
+                                                    <div class="progress-bar" data-progress=""></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-wrap">
+                                                <div class="progress-text">
+                                                    <div class="progress-label">Silver Plan</div>
+                                                    <div class="progress-amount"></div>
+                                                </div>
+                                                <div class="progress progress-md">
+                                                    <div class="progress-bar bg-teal" data-progress=""></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-wrap">
+                                                <div class="progress-text">
+                                                    <div class="progress-label">Gold Plan</div>
+                                                    <div class="progress-amount"></div>
+                                                </div>
+                                                <div class="progress progress-md">
+                                                    <div class="progress-bar bg-orange" data-progress=""></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="invest-top-ck mt-auto">
+                                            <canvas class="iv-plan-purchase" id="planPurchase"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-md-6 col-xxl-4">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner border-bottom">
+                                        <div class="card-title-group">
+                                            <div class="card-title">
+                                                <h6 class="title">Recent Withdrawal Request</h6>
+                                            </div>
+                                            <!--<div class="card-tools">
+                                                            <ul class="card-tools-nav">
+                                                                <li><a href="#"><span>Cancel</span></a></li>
+                                                                <li class="active"><a href="#"><span>All</span></a></li>
+                                                            </ul>
+                                                        </div>-->
+                                        </div>
+                                    </div>
+                                    <ul class="nk-activity">
+                                         <% withdraws.forEach((withdrawal)=>{ %>
+                                            <%if(withdrawal.status == "Pending"){%>
+                                                <li class="nk-activity-item">
+                                                    <div class="nk-activity-media user-avatar bg-success"><%=withdrawal.account_name.substring(0,2)%></div>
+                                                    <div class="nk-activity-data">
+                                                        <div class="label"><b class="text-dark"><%= withdrawal.account_name %></b> requested to withdraw <b class="text-dark">$<%=withdrawal.amount%></b> from their <b class="text-dark"><%=withdrawal.trx_account%></b> account.</div>
+                                                        <span class="time text-success"><b>NEW REQUEST</b></span>
+                                                    </div>
+                                                </li>
+                                            <%}else{%>
+
+                                            <%}%>
+                                        <%})%>
+                                    </ul>
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+
+
+                            <div class="col-xl-6 col-xxl-12">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner border-bottom">
+                                        <div class="card-title-group">
+                                            <div class="card-title">
+                                                <h6 class="title">Recent Investments</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <a href="#" class="link">View All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card card-bordered card-preview">
+                                        <table class="table table-orders">
+                                            <thead>
+                                                <tr class="tb-tnx-head">
+                                                    <th class="tb-tnx-id"><span class="">Plan</span></th>
+                                                    <th class="tb-tnx-info">
+                                                        <span class="tb-tnx-desc d-none d-sm-inline-block">
+                                                            <span>User</span>
+                                                        </span>
+                                                        <span class="tb-tnx-date d-md-inline-block d-none">
+                                                            <span class="d-md-none">Date</span>
+                                                            <span class="d-none d-md-block">
+                                                                <span>Start Date</span>
+                                                                <!--<span>End Date</span>-->
+                                                            </span>
+                                                        </span>
+                                                    </th>
+                                                    <th class="tb-tnx-amount is-alt">
+                                                        <span class="tb-tnx-total">Amount</span>
+                                                        <span
+                                                            class="tb-tnx-status d-none d-md-inline-block">Status</span>
+                                                    </th>
+                                                    <th class="tb-odr-action">
+                                                        <span>&nbsp;</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% invests.forEach((investment)=>{ %>
+                                                    <tr class="tb-tnx-item">
+                                                        <td class="tb-tnx-id">
+                                                            <%=investment.plan%>
+                                                        </td>
+                                                        <td class="tb-tnx-info">
+                                                            <div class="tb-tnx-desc">
+                                                                <span class="title"><%=investment.username%></span>
+                                                            </div>
+                                                            <div class="tb-tnx-date">
+                                                                <span class="date"><%=investment.start_date.toLocaleDateString()%></span>
+                                                                <!--<span class="date">10-13-2019</span>-->
+                                                            </div>
+                                                        </td>
+                                                        <td class="tb-tnx-amount is-alt">
+                                                            <div class="tb-tnx-total">
+                                                                <span class="amount">$<%=investment.amount.toLocaleString()%></span>
+                                                            </div>
+                                                                <%if(investment.status == "Active"){%>
+                                                                    <div class="tb-tnx-status">
+                                                                    <span class="badge badge-dot badge-warning">Running</span>
+                                                                    </div>
+                                                                <%}else if(investment.status == "Inactive"){%>
+                                                                    <div class="tb-tnx-status">
+                                                                    <span class="badge badge-dot badge-success">Completed</span>
+                                                                    </div>
+                                                                <%}%>  
+                                                        </td>
+                                                        <td class="tb-odr-action">
+                                                            <div class="tb-odr-btns d-none d-md-inline">
+                                                                <a href="/investment/<%= investment.order_id%>" class="btn btn-sm btn-primary">View</a>
+                                                            </div>
+                                                            <div class="dropdown">
+                                                                <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown" data-offset="-8,0"><em
+                                                                        class="icon ni ni-more-h"></em></a>
+                                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                                    <ul class="link-list-plain">
+                                                                        <li><a href="/investment/<%= investment.order_id%>" class="text-primary">View</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <%})%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+                            </br></br>
+                            <div class="col-xl-6 col-xxl-12">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner border-bottom">
+                                        <div class="card-title-group">
+                                            <div class="card-title">
+                                                <h6 class="title">Recent Withdrawals</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <a href="/rsglobal131220-withdrawal" class="link">View All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card card-bordered card-preview">
+                                        <table class="table table-orders">
+                                            <thead class="tb-odr-head">
+                                                <tr class="tb-odr-item">
+                                                    <th class="tb-odr-info">
+                                                        <span class="tb-odr-id"> ID</span>
+                                                        <span class="tb-odr-date d-none d-md-inline-block">Date</span>
+                                                    </th>
+                                                    <th>Account</th>
+                                                    <th class="tb-odr-amount">
+                                                        <span class="tb-odr-total">Amount</span>
+                                                        <span
+                                                            class="tb-odr-status d-none d-md-inline-block">Status</span>
+                                                    </th>
+                                                    <th class="tb-odr-action">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="tb-odr-body">
+                                                <% withdraws.forEach((withdrawal)=>{ %>
+                                                <tr class="tb-odr-item">
+                                                    <td class="tb-odr-info">
+                                                        <span class="tb-odr-id"><a href="#"><%= withdrawal.order_id %></a></span>
+                                                        <span class="tb-odr-date"><%= withdrawal.submitted.toLocaleDateString() + ", " + withdrawal.submitted.toLocaleTimeString()%></span>
+                                                    </td>
+                                                    <td><%= withdrawal.trx_account %></td>
+                                                    <td class="tb-odr-amount">
+                                                        <span class="tb-odr-total">
+                                                            <span class="amount">$<%= withdrawal.amount.toLocaleString() %></span>
+                                                        </span>
+                                                        <span class="tb-odr-status">
+                                                            <%if(withdrawal.status == "Pending"){%>
+                                                                <span class="badge badge-dot badge-warning">Pending</span>
+                                                            <%}else if(withdrawal.status == "Completed"){%>
+                                                                <span class="badge badge-dot badge-success">Completed</span>
+                                                            <%}else if(withdrawal.status=="Declined" ){%>
+                                                                <span class="badge badge-dot badge-danger">Declined</span>
+                                                            <%}%> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="tb-odr-action">
+                                                        <div class="tb-odr-btns d-none d-md-inline">
+                                                            <a href="/rsglobal131220-withdrawal-view/<%= withdrawal.order_id %>" class="btn btn-sm btn-primary">View</a>
+                                                        </div>
+                                                        <div class="dropdown">
+                                                            <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown" data-offset="-8,0"
+                                                                aria-expanded="false"><em class="icon ni ni-more-h"></em></a>
+                                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                                <ul class="link-list-plain">
+                                                                    <li><a href="/rsglobal131220-withdrawal-view/<%= withdrawal.order_id %>" class="text-primary">View</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                    <%})%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div><!-- .card -->
+                            </div><!-- .col -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content @e -->
+    <!-- footer @s -->
+    <div class="nk-footer">
+        <div class="container-fluid">
+            <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> &copy; 2020 Real Source Global Invesment Ltd. Designed by <a
+                        href="#">GGDC</a>
+                </div>
+                <div class="nk-footer-links">
+                    <ul class="nav nav-sm">
+                        <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer @e -->
+    </div>
+    <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/gd-invest.js?ver=1.4.0"></script>
+    </body>
+
+    </html>

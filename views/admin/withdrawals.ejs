@@ -1,0 +1,127 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                                <% if(type !="" && heading !="" && message !="" ){ %>
+                                    <div style="text-align: center;" class="alert alert-<%=type%>">
+                                        <strong>
+                                            <%=heading%>
+                                        </strong><br>
+                                        <%=message%>
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    </div>
+                                    <%}else{%>
+                            
+                                        <%}%>
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-between">
+                                        
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title">Pending Withdrawals</h3>
+
+                                        </div><!-- .nk-block-head-content -->
+
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <div class="row g-gs">
+                                        <div class="col-md-12">
+                                            <div class="card card-bordered card-preview">
+                                                <table class="table table-orders">
+                                                    <thead class="tb-odr-head">
+                                                        <tr class="tb-odr-item">
+                                                            <th class="tb-odr-info">
+                                                                <span class="tb-odr-id"> ID</span>
+                                                                <span
+                                                                    class="tb-odr-date d-none d-md-inline-block">Date</span>
+                                                            </th>
+                                                            <th class="tb-odr-amount">
+                                                                <span class="tb-odr-total">Amount</span>
+                                                                <span
+                                                                    class="tb-odr-status d-none d-md-inline-block">Status</span>
+                                                            </th>
+                                                            <th class="tb-odr-action">&nbsp;</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tb-odr-body">
+                                                        <%pendings.forEach(function(pending){%>
+                                                            <tr class="tb-odr-item">
+                                                                <td class="tb-odr-info">
+                                                                    <span class="tb-odr-id"><a href="#"><%=pending.order_id%></a></span>
+                                                                    <span class="tb-odr-date"><%= pending.submitted.toLocaleDateString() + ", " + pending.submitted.toLocaleTimeString()%></span>
+                                                                </td>
+                                                                <td class="tb-odr-amount">
+                                                                    <span class="tb-odr-total">
+                                                                        <span class="amount">$<%=pending.amount%></span>
+                                                                    </span>
+                                                                    <span class="tb-odr-status">
+                                                                        <span class="badge badge-dot badge-warning"><%=pending.status%></span>
+                                                                    </span>
+                                                                </td>
+                                                                <td class="tb-odr-action">
+                                                                    <div class="tb-odr-btns d-none d-md-inline">
+                                                                        <a href="/rsglobal131220-withdrawal-view/<%= pending.order_id %>" class="btn btn-sm btn-primary">View</a>
+                                                                    </div>
+                                                                    <div class="dropdown">
+                                                                        <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown" data-offset="-8,0"
+                                                                            aria-expanded="false"><em class="icon ni ni-more-h"></em></a>
+                                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                                                            <ul class="link-list-plain">
+                                                                                 <li><a href="/rsglobal131220-withdrawal-view/<%= pending.order_id %>"
+                                                                                         class="btn btn-sm btn-primary">View</a>
+                                                                                 </li>
+                                                                                <li><a href="/rsglobal131220-withdrawal-approve/<%=pending.order_id%>" class="text-primary">Approve</a>
+                                                                                </li>
+                                                                                <li><a href="/rsglobal131220-withdrawal-decline/<%=pending.order_id%>" class="text-primary">Decline</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <%})%>
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; 2020 Real Source Global Invesment Ltd. Designed by
+                                <a href="#">GGDC</a>
+                            </div>
+                            <div class="nk-footer-links">
+                                <ul class="nav nav-sm">
+                                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/gd-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

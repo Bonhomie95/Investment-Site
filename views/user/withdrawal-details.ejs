@@ -1,0 +1,132 @@
+<%- include ('partials/header') -%>
+<% if(type != "" && heading != "" && message != ""){ %>
+<div style="text-align: center;" class="alert alert-<%=type%>">
+    <strong><%=heading%></strong><br><%=message%>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+<%}else{%>
+
+<%}%>
+<!-- main header @e -->
+<!-- content @s -->
+<script>
+    window.onload = function(){
+        if(window.history.replaceState){
+            window.history.replaceState(null,null,window.location.href);
+        }
+    }
+</script>
+<div class="nk-content nk-content-lg nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head">
+                    <div class="nk-block-head-content">
+                        <div class="nk-block-head-sub"><a href="#" class="text-soft back-to"><em
+                                    class="icon ni ni-arrow-left"> </em><span>My Withdrawal</span></a></div>
+                        <div class="nk-block-between-md g-4">
+                            <div class="nk-block-head-content">
+                                <h2 class="nk-block-title fw-normal"><%= withdrawal.trx_account %> Balance Withdraw</h2>
+<div class="nk-block-des">
+    <p><%= withdrawal.order_id %> <span class="badge badge-outline badge-primary"><%= withdrawal.status %></span>
+    </p>
+</div><br>
+<div class="nk-block-des">
+   <p class="text-success"><strong>Note:</strong> Your Withdrawal is been processed and
+        will be credited
+        to the stated account within 3 to 7 working days.</p>
+</div>
+</div>
+</div>
+</div>
+</div><!-- .nk-block-head -->
+<div class="nk-block">
+    <div class="card card-bordered">
+        <div class="card-inner">
+            <div class="row gy-gs">
+                <div class="col-md-6">
+                    <div class="nk-iv-wg3">
+                        <div class="nk-iv-wg3-group flex-lg-nowrap gx-4">
+                            <div class="nk-iv-wg3-sub">
+                                <div class="nk-iv-wg3-amount">
+                                    <div class="number">$<%= withdrawal.amount %></div>
+                                </div>
+                                <div class="nk-iv-wg3-subtitle">Withdrawal Amount</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .col -->
+
+            </div><!-- .row -->
+        </div>
+        <div id="schemeDetails" class="nk-iv-scheme-details">
+            <!-- <br> -->
+            <ul class="nk-iv-wg3-list">
+                <li>
+                    <div class="sub-text">Balance</div>
+                    <div class="lead-text"><%= withdrawal.trx_account %></div>
+                </li>
+                <li>
+                    <div class="sub-text">Submitted Date</div>
+                    <%var options = { year: 'numeric', month: 'short', day: 'numeric' };%>
+                    <% var submitted = withdrawal.submitted.toLocaleDateString("en-US",options); %>
+                    <div class="lead-text"><%= submitted %></div>
+                </li>
+                <li>
+                    <div class="sub-text">Approved Date</div>
+                    <% var approved = withdrawal.approved %>
+                    <div class="lead-text"><%= approved %></div>
+                </li>
+
+            </ul><!-- .nk-iv-wg3-list -->
+            <ul class="nk-iv-wg3-list">
+                <li>
+                    <div class="sub-text">Bank</div>
+                    <div class="lead-text"><%= withdrawal.bank_name %></div>
+                </li>
+                <li>
+                    <div class="sub-text">Account Name</div>
+                    <div class="lead-text"><%= withdrawal.account_name%></div>
+                </li>
+                <li>
+                    <div class="sub-text">Account Number</div>
+                    <div class="lead-text"><%= withdrawal.account_no %></div>
+                </li>
+            </ul><!-- .nk-iv-wg3-list -->
+
+        </div><!-- .nk-iv-scheme-details -->
+    </div>
+</div><!-- .nk-block -->
+</div>
+</div>
+</div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer nk-footer-fluid bg-lighter">
+    <div class="container-xl wide-lg">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#"> GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

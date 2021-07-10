@@ -1,0 +1,133 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+<!-- content @s -->
+<script>
+    window.onload = function(){
+        if(window.history.replaceState){
+            window.history.replaceState(null,null,window.location.href);
+        }
+    }
+</script>
+<div class="nk-content nk-content-lg nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head">
+                    <div class="nk-block-head-content">
+                        <br>
+                        <br>
+                        <div class="nk-block-head-sub"><a href="#" class="text-soft back-to"><em
+                                    class="icon ni ni-arrow-right"> </em><span class="text-success">INVESTMENT ORDER <span><%= invest.order_id%></span> DETAILS</span></a></div>
+                        <div class="nk-block-between-md g-4">
+                            <div class="nk-block-head-content">
+                                <h3 class="nk-block-title fw-normal">Investor: <%= user.firstname + " " + user.lastname%></h3>
+                                <h3 class="nk-block-title fw-normal">Username: <%= invest.username%></h3>
+                                <div class="nk-block-des">
+                                    <p><%= invest.order_id %> 
+                                        <%if(invest.status == "Active"){%>
+                                            <span class="badge badge-outline badge-warning"><%= invest.status %></span>
+                                        <%}else if(invest.status == "Inactive"){%>
+                                            <span class="badge badge-outline badge-secondary"><%= invest.status %></span>
+                                        <%}else if(invest.status == "Suspended"){%>
+                                            <span class="badge badge-outline badge-danger"><%= invest.status %></span>
+                                        <%}%>
+                                    </p>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .nk-block-head -->
+                <div class="nk-block">
+                    <div class="card card-bordered">
+                        <div class="card-inner">
+                            <div class="row gy-gs">
+                                <div class="col-md-6">
+                                    <div class="nk-iv-wg3">
+                                        <div class="nk-iv-wg3-group flex-lg-nowrap gx-4">
+                                            <div class="nk-iv-wg3-sub">
+                                                <div class="nk-iv-wg3-amount">
+                                                    <div class="number">$<%= invest.amount.toLocaleString() %></div>
+                                                </div>
+                                                <div class="nk-iv-wg3-subtitle">Investment Amount</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+
+                            </div><!-- .row -->
+                        </div>
+                        <div id="schemeDetails" class="nk-iv-scheme-details">
+                            <!-- <br> -->
+                            <ul class="nk-iv-wg3-list">
+                                <li>
+                                    <div class="sub-text">Investment Plan</div>
+                                    <div class="lead-text">
+                                        <%= invest.plan %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sub-text">Investment Rate</div>
+                                    <div class="lead-text">
+                                        <%= invest.rate %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sub-text">Investment Tenure</div>
+                                            <div class="lead-text">
+                                                <%= invest.tenure %>
+                                            </div>
+                                </li>
+                            
+                            </ul>
+                            <ul class="nk-iv-wg3-list">
+                                <li>
+                                    <div class="sub-text">Returns On Investment (ROI)</div>
+                                    <div class="lead-text"><%= invest.roi %></div>
+                                </li>
+                                <li>
+                                    <div class="sub-text">Start Date</div>
+                                    <div class="lead-text"><%= invest.start_date.toLocaleDateString() %></div>
+                                </li>
+                                <li>
+                                    <div class="sub-text">End Date</div>
+                                    <div class="lead-text"><%= invest.end_date.toLocaleDateString() %></div>
+                                </li>
+
+                            </ul><!-- .nk-iv-wg3-list -->
+                            
+                        </div><!-- .nk-iv-scheme-details -->
+                    </div>
+                </div><!-- .nk-block -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer nk-footer-fluid bg-lighter">
+    <div class="container-xl wide-lg">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#"> GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

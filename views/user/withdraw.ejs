@@ -1,0 +1,441 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+<!-- content @s -->
+<div class="nk-content nk-content-lg nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head">
+                    <div class="nk-block-head-content">
+                        <div class="nk-block-between-md g-4">
+                            <div class="nk-block-head-content">
+                                <h2 class="nk-block-title fw-normal">Withdraw</h2>
+                                <div class="nk-block-des">
+                                    <p>Hey <%= user.firstname %> Withdraw your funds here.</p>
+                                </div>
+                            </div><!-- .nk-block-head-content -->
+                            <div class="nk-block-head-content">
+                                <ul class="nk-block-tools gx-3">
+                                    <!-- <li><a href="invest.html" class="btn btn-white btn-light"><span>Invest More</span> <em class="icon ni ni-arrow-long-right d-none d-sm-inline-block"></em></a></li> -->
+
+                                </ul>
+                            </div><!-- .nk-block-head-content -->
+                        </div>
+                    </div>
+                </div><!-- .nk-block-head -->
+                <div class="nk-block">
+                    <div class="card card-bordered">
+                        <div class="card-inner-group">
+                            <div class="card-inner">
+                                <div class="row gy-gs">
+                                    <div class="col-lg-5">
+                                        <div class="nk-iv-wg3">
+                                            <div class="nk-iv-wg3-title">Account Balance</div>
+                                            <div class="nk-iv-wg3-group  flex-lg-nowrap gx-4">
+                                                <div class="nk-iv-wg3-sub">
+                                                    <div class="nk-iv-wg3-amount">
+                                                        <div class="number"><span id="main_total"></span><small
+                                                                class="currency currency-usd"> USD</small></div>
+                                                    </div>
+                                                    <div class="nk-iv-wg3-subtitle">Total Account Balance</div>
+                                                </div>
+                                                <div class="nk-iv-wg3-sub">
+                                                    <span class="nk-iv-wg3-plus text-soft"><em
+                                                            class="icon ni ni-plus"></em></span>
+                                                    <div class="nk-iv-wg3-amount">
+                                                        <%if(invest != null){%>
+                                                        <%if(invest.status == "Active"){%>
+                                                        <div class="number-sm"><span id="main_locked"></span>
+                                                            <small class="currency currency-usd"> USD</small>
+                                                        </div>
+                                                        <% } %>
+                                                        <%if(invest.status == "Inactive"){%>
+                                                        <div class="number"><span id="roi">0</span><small class="currency currency-usd">
+                                                                USD</small></div>
+                                                        <%} %>
+                                                        <% }else{%>
+                                                        <div class="number-sm"><span></span>0<small
+                                                                class="currency currency-usd">
+                                                                USD</small></div>
+                                                        <%}%>
+                                                    </div>
+                                                    <div class="nk-iv-wg3-subtitle">Locked Balance <em
+                                                            class="icon ni ni-info-fill" data-toggle="tooltip"
+                                                            data-placement="right" title="You can't Withdraw"></em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <div class="col-lg-7">
+                                        <div class="nk-iv-wg3">
+                                            <div class="nk-iv-wg3-title">Total Profits (ROI) <em
+                                                    class="icon ni ni-info-fill" data-toggle="tooltip"
+                                                    data-placement="right" title="Total Return on Investment"></em>
+                                            </div>
+                                            <div class="nk-iv-wg3-group flex-md-nowrap g-4">
+                                                <div class="nk-iv-wg3-sub-group gx-4">
+                                                    <div class="nk-iv-wg3-sub">
+                                                        <div class="nk-iv-wg3-amount">
+                                                            <%if(invest != null){%>
+                                                        <%if(invest.status == "Active"){%>
+                                                        <div class="number"><span id="roi"><%=invest.roi%></span><small
+                                                                class="currency currency-usd"> USD</small></div>
+                                                        <% } %>
+                                                        <%if(invest.status == "Inactive"){%>
+                                                        <div class="number"><span id="roi">0</span><small class="currency currency-usd">
+                                                                USD</small></div>
+                                                        <%} %>
+                                                        <% }else{%>
+                                                        <div class="number"><span id="roi">0</span><small
+                                                                class="currency currency-usd">
+                                                                USD</small></div>
+                                                        <%}%>
+                                                            
+                                                        </div>
+                                                        <div class="nk-iv-wg3-subtitle">Total Profit</div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="nk-iv-wg3-sub flex-grow-1 ml-md-3">
+                                                    <div class="nk-iv-wg3-ck">
+                                                        <canvas class="chart-profit" id="profitCM"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                </div><!-- .row -->
+                            </div><!-- .card-inner -->
+                            <div class="card-inner">
+                                <ul class="nk-iv-wg3-nav">
+                                    <li><a href="/withdrawal-history/<%= user.username %>"><em
+                                                            class="icon ni ni-notes-alt"></em>
+                                                        <span>Withdrawal History</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-notes-alt"></em>
+                                                                <span>Investment
+                                                                    History</span></a>
+                                                        </li>
+                                                        </ul>
+                                                    </div><!-- .card-inner -->
+                                                </div><!-- .card-inner-group -->
+                                            </div><!-- .card -->
+                                        </div><!-- .nk-block -->
+                                        <script>
+                                            window.onload = function () {
+                                                var bal = parseInt(document.getElementById('acctbal').textContent);
+                                                var roi = parseInt(document.getElementById('roi_earning').textContent);
+                                                var investment = parseInt(document.getElementById('investment').textContent);
+                                                var referral = parseInt(document.getElementById('referral_earning').textContent);
+                                                var total = bal + investment + referral + roi;
+                                                document.getElementById('acct_balance').textContent = bal;
+                                                document.getElementById('main_total').textContent = bal;
+                                                document.getElementById('total_bal').textContent = bal;
+                                                document.getElementById('locked_bal').textContent = investment;
+                                                document.getElementById('available_bal').textContent = total - investment;
+                                                document.getElementById('main_locked').textContent = investment;
+                                                var points = parseInt(document.getElementById('ppv').textContent) + parseInt(document.getElementById('dpv').textContent) + parseInt(document.getElementById('ipv').textContent);
+                                                document.getElementById('cpv').textContent = points;
+                                            }
+                                        </script><br>
+                                        <div class="nk-block">
+                                            <div class="row gy-gs">
+                                                <div class="col-md-6 col-lg-4">
+                                                    <div class="nk-wg-card card card-bordered h-100">
+                                                        <div class="card-inner h-100">
+                                                            <div class="nk-iv-wg2">
+                                                                <div class="nk-iv-wg2-title">
+                                                                    <h6 class="title">Balance in Account</h6>
+                                                                </div>
+                                                                <div class="nk-iv-wg2-text">
+                                                                    <div class="nk-iv-wg2-amount ui-v2">$<span
+                                                                            id="acct_balance"></span>
+                                                                    </div>
+                                                                    <ul class="nk-iv-wg2-list">
+                                                                        <li>
+                                                                            <span class="item-label">Account
+                                                                                Balance</span>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="acctbal"><%=user.accountbal%></span></span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="item-label">ROI Balance</span>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="roi_earning"><%=user.roi_earning%></span></span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="item-label">Invested
+                                                                                Funds</span>
+                                                                            <%if(invest != null){%>
+                                                                            <%if(invest.status == "Active"){%>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="investment"><%=invest.amount%></span></span>
+                                                                            <% } %>
+                                                                            <%if(invest.status == "Inactive"){%>
+                                                                            <span class="item-value">$ <span id="investment">0</span></span>
+                                                                            <%} %>
+                                                                            <% }else{%>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="investment">0</span></span>
+                                                                            <%}%>
+                                                </li>
+                                                <li>
+                                                    <span class="item-label">Referral Earnings</span>
+                                                    <span class="item-value">$ <span
+                                                            id="referral_earning"><%=user.referral_earning%></span></span>
+                                                                        </li>
+                                                                        <li class="total">
+                                                                            <span class="item-label">Total</span>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="total_bal">2000</span></span>
+                                                                        </li>
+                                                                        <li class="total">
+                                                                            <span class="item-label">Locked
+                                                                                Balance</span>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="locked_bal"></span></span>
+                                                                        </li>
+                                                                        <li class="total">
+                                                                            <span class="item-label">Available
+                                                                                Balance</span>
+                                                                            <span class="item-value">$ <span
+                                                                                    id="available_bal"></span></span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="nk-iv-wg2-cta">
+                                                                    <button type="button"
+                                                                        class="btn btn-primary btn-lg btn-block"
+                                                                        data-toggle="modal"
+                                                                        data-target="#modalWithdraw">Withdraw
+                                                                        Funds</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-6 col-lg-6">
+                                                    <div class="nk-wg-card card card-bordered h-100">
+                                                        <div class="card-inner h-100">
+                                                            <% if(type != "" && heading != "" && message != ""){ %>
+                                                            <div style="text-align: center;"
+                                                                class="alert alert-<%=type%>">
+                                                                <strong><%=heading%></strong><br><%=message%>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="alert">&times;</button>
+                                                            </div>
+                                                            <%}else{%>
+
+                                                            <%}%>
+                                            <div class="nk-iv-wg2">
+                                                <div class="nk-iv-wg2-title">
+                                                    <h6 class="title text-success">Withdraw <em class="icon ni ni-info text-primary"></em></h6>
+                                                </div>
+                                                            <form action="/withdrawal/<%= user.username %>"
+                                                            method="POST">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Select Balance</label>
+                                                                <div class="form-control-wrap">
+                                                                    <select name="trx_account" id="trx_account"
+                                                                        class="form-select form-control form-control-lg select2-hidden-accessible"
+                                                                        data-select2-id="1" tabindex="-1"
+                                                                        aria-hidden="true" required>
+                                                                        <option value="default_option"
+                                                                            data-select2-id="3">Select Option</option>
+                                                                        <option value="ROI" data-select2-id="20">ROI
+                                                                            Balance</option>
+                                                                        <option value="Account" data-select2-id="21">
+                                                                            Account Balance</option>
+                                                                        <option value="Referral" data-select2-id="22">
+                                                                            Referral Bonus</option>
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="wtdw-amount">Amount</label>
+                                                                <div class="form-control-wrap">
+                                                                    <input onkeypress="return onlyNumberKey(event)"
+                                                                        type="number" class="form-control"
+                                                                        id="trx_amount" name="trx_amount" min = "0" value=0
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <label class="form-label"
+                                                                            for="verify-new-passowrd">Bank Name</label>
+                                                                        <div class="form-control-wrap">
+                                                                            <input type="text" class="form-control"
+                                                                                id="bank_name" name="bank_name"
+                                                                                value="<%= user.bankname %>" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label class="form-label"
+                                                                            for="verify-new-passowrd">Account
+                                                                            Name</label>
+                                                                        <div class="form-control-wrap">
+                                                                            <input type="text" class="form-control"
+                                                                                id="account_name" name="account_name"
+                                                                                value="<%= user.accountname %>"
+                                                                                readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="verify-new-passowrd">Account Number</label>
+                                                                <div class="form-control-wrap">
+                                                                    <input type="text" class="form-control"
+                                                                        id="account_no" name="account_no"
+                                                                        value="<%= user.banknumber %>" maxlength="10"
+                                                                        readonly>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="verify-new-passowrd">Transaction Pin</label>
+                                                                <div class="form-control-wrap">
+                                                                    <input type="number" class="form-control"
+                                                                        id="trx_pin" name="trx_pin" maxlength="4"
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+
+                                                                <input onclick="tick()"
+                                                                    onchange="document.getElementById('withdraw').disabled = !this.checked;"
+                                                                    type="checkbox"
+                                                                    id="checkbox">
+
+                                                                <label  for="checkbox">I
+                                                                        have check that the withdrawal info
+                                                                        above are correct.</label>
+                                                            </div>
+                                                            <script>
+                                                                function onlyNumberKey(evt) {
+
+                                                                    // Only ASCII charactar in that range allowed 
+                                                                    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                                                                    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                                                                        return false;
+                                                                    return true;
+                                                                } 
+                                                            </script>
+                                                            <script>
+                                                                function tick() {
+                                                                    var roi = parseInt(document.getElementById('roi_earning').textContent);
+                                                                    var acctbal = parseInt(document.getElementById('acctbal').textContent);
+                                                                    var ref = parseInt(document.getElementById('referral_earning').textContent);
+                                                                    var selected_account = document.getElementById('trx_account').value;
+                                                                    var selected_amount = parseInt(document.getElementById('trx_amount').value);
+                                                                    var bank = document.getElementById('bank_name').value;
+                                                                    var acctname = document.getElementById('account_name').value
+                                                                    var acctnum = document.getElementById('account_no').value;
+                                                                    if (selected_account == "default_option" || selected_amount == 0) {
+                                                                        alert("Choose an account to withdraw from or enter an amount greater than 0!");
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    }
+                                                                    if (selected_amount == "") {
+                                                                        alert("Enter an amount to withdraw!");
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    }
+                                                                    if (bank == "" || acctname == "" || acctnum == "") {
+                                                                        alert("You have not added your bank account details! Kindly update your profile!!");
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    }
+                                                                    if (selected_account == "Account" && selected_amount > acctbal) {
+                                                                        alert("Insufficient Funds!");
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    } if (selected_account == "ROI" && selected_amount > roi) {
+                                                                        alert("Insufficient Funds!" + roi)
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    } if (selected_account == "Referral" && selected_amount > ref) {
+                                                                        alert("Insufficient Funds!")
+                                                                        document.getElementById('checkbox').checked = false;
+                                                                    }
+                                                                }
+                                                            </script>
+                                                            <div class="form-group">
+                                                                <button onclick="tick()" type="submit" id="withdraw"
+                                                                    class="btn btn-block btn-primary" disabled>Withdraw</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .card -->
+                                            </div><!-- .col -->
+
+                                        </div><!-- .row -->
+                                    </div><!-- .nk-block -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content @e -->
+                    <!-- footer @s -->
+                    <div class="nk-footer nk-footer-fluid bg-lighter">
+                        <div class="container-xl wide-lg">
+                            <div class="nk-footer-wrap">
+                                <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#">
+                                        GGDC</a>
+                                </div>
+                                <div class="nk-footer-links">
+                                    <ul class="nav nav-sm">
+                                        <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer @e -->
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- app-root @e -->
+            <!-- JavaScript -->
+            <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+            <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+            <script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+            </body>
+            <!-- @@ Confirm Withdraw Modal @e -->
+            <div class="modal fade" tabindex="-1" id="confirm-withdraw">
+                <div class="modal-dialog modal-dialog-centered modal-md">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-lg text-center">
+                            <div class="nk-modal">
+                                <em class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-check bg-success"></em>
+                                <h4 class="nk-modal-title">Withdrawal Request Submitted successfully!</h4>
+                                <div class="nk-modal-text">
+                                    <p class="sub-text">Your withdrawal of <strong>$250</strong> from your
+                                        <strong>ROI</strong>
+                                        Balance is been processed.</p>
+                                </div>
+                                <div class="nk-modal-action-lg">
+                                    <ul class="btn-group flex-wrap justify-center g-4">
+                                        <!-- <li><a href="invest.html" class="btn btn-lg btn-mw btn-primary">More Invest</a></li> -->
+                                        <li><a href="withdrawal-history.html"
+                                                class="btn btn-lg btn-mw btn-dim btn-primary"><em
+                                                    class="icon ni ni-reports"></em><span>Withdrawal History</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- .modal-body -->
+                        <div class="modal-footer bg-lighter">
+                            <div class="text-center w-100">
+                                <p>Earn upto 5% for each friend your refer! <a href="#">Invite friends</a></p>
+                            </div>
+                        </div>
+                    </div><!-- .modal-content -->
+                </div><!-- .modla-dialog -->
+            </div><!-- .modal -->
+
+            </html>

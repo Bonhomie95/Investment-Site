@@ -1,0 +1,585 @@
+<%- include ('partials/header') -%>
+<% if(type != "" && heading != "" && message != ""){ %>
+<div style="text-align: center;" class="alert alert-<%=type%>">
+    <strong><%=heading%></strong><br><%=message%>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+<%}else{%>
+
+<%}%>
+<!-- main header @e -->
+<!-- content @s -->
+<!-- <script>
+    window.onload = function () {
+        document.getElementById('continue').onclick = function () {
+            var order_number = 'RSGi-' + Math.floor((Math.random() * 100000) + 100000);
+            document.getElementById('amount').textContent = document.querySelector("input[name=amount]").value;
+            document.getElementById('order_id').textContent = order_number;
+            document.querySelector("input[name=i_amount]").value = document.querySelector("input[name=amount]").value;
+            document.querySelector("input[name=i_roi]").value = document.querySelector("input[name=total_roi]").value;
+            document.querySelector("input[name=i_plan]").value = document.querySelector("input[name=plan]").value;
+            document.querySelector("input[name=i_tenor]").value = document.querySelector("input[name=term_of_plan]").value;
+            document.querySelector("input[name=i_start_date]").value = document.querySelector("input[name=start_date]").value;
+            document.querySelector("input[name=i_end_date]").value = document.querySelector("input[name=end_date]").value;
+            document.querySelector("input[name=i_rate]").value = document.querySelector("input[name=interest_rate]").value;
+            document.querySelector("input[name=i_order_id]").value = order_number;
+        }
+    }
+</script> -->
+<div class="nk-content nk-content-lg nk-content-fluid">
+    <div class="container-xl wide-lg">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head text-center">
+                    <div class="nk-block-head-content">
+                        <div class="nk-block-head-sub"><span>Choose an Option</span></div>
+                        <div class="nk-block-head-content">
+                            <h2 class="nk-block-title fw-normal">Investment Plan</h2>
+                            <div class="nk-block-des">
+                                <p>Choose your investment plan and start earning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- nk-block -->
+                <div class="nk-block">
+                    <!-- <form action="/select-plan/<%=user.username%>" method="GET" class="plan-iv"> -->
+<!-- <form class="plan-iv"> -->
+<div class="plan-iv-currency text-center">
+    <ul class="nav nav-switch nav-tabs bg-white">
+        <li class="nav-item">
+            <a href="#" class="nav-link active">USD</a>
+        </li>
+    </ul><!-- nav-tabs -->
+</div>
+<div class="plan-iv-list nk-slider nk-slider-s2">
+    <ul class="plan-list slider-init" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "infinite":false, "responsive":[
+						{"breakpoint": 992,"settings":{"slidesToShow": 2}},
+						{"breakpoint": 768,"settings":{"slidesToShow": 1}}
+                    ]}'>
+        <li class="plan-item">
+            <input type="radio" id="plan-iv-1" value="Bronze" name="plan-iv" class="plan-control">
+            <div class="plan-item-card">
+                <div class="plan-item-head">
+                    <div class="plan-item-heading">
+                        <h4 class="plan-item-title card-title title">Bronze</h4>
+                        <p class="sub-text">Enjoy entry level of invest & earn money.</p>
+                        <p class="sub-text">This package runs for at least Twelve(12) Months.</p>
+                    </div>
+                    <div class="plan-item-summary card-text">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="lead-text">15%</span>
+                                <span class="sub-text">Monthly Interest</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="lead-text">Monthly</span>
+                                <span class="sub-text">Term Days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plan-item-body">
+                    <div class="plan-item-desc card-text">
+                        <ul class="plan-item-desc-list">
+                            <li><span class="desc-label">Min Deposit</span> - <span class="desc-data">$100</span></li>
+                            <li><span class="desc-label">Max Deposit</span> - <span class="desc-data">$20,000</span>
+                            </li>
+                            <li><span class="desc-label">Capital Deposit Return</span> - <span class="desc-data">12
+                                    Months</span></li>
+                            <li><span class="desc-label">Total Return for 12 Months</span> - <span class="desc-data">15%
+                                    ROI</span></li>
+                        </ul>
+                        <div class="plan-item-action">
+                            <label for="plan-iv-1" class="plan-label">
+                                <span class="plan-label-base">Choose this plan</span>
+                                <span class="plan-label-selected">Plan Selected</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li><!-- .plan-item -->
+        <li class="plan-item">
+            <input type="radio" id="plan-iv-2" value="Silver" name="plan-iv" class="plan-control">
+            <div class="plan-item-card">
+                <div class="plan-item-head">
+                    <div class="plan-item-heading">
+                        <h4 class="plan-item-title card-title title">Silver</h4>
+                        <p class="sub-text">Best plan for user to invest & earn money.</p>
+                        <p class="sub-text">This package runs for at least Twelve(12) Months.
+                        </p>
+                    </div>
+                    <div class="plan-item-summary card-text">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="lead-text">50%</span>
+                                <span class="sub-text">Quarterly Interest </span>
+                            </div>
+                            <div class="col-6">
+                                <span class="lead-text">Quarterly</span>
+                                <span class="sub-text">Term Days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plan-item-body">
+                    <div class="plan-item-desc card-text">
+                        <ul class="plan-item-desc-list">
+                            <li><span class="desc-label">Min Deposit</span> - <span class="desc-data">$200</span></li>
+                            <li><span class="desc-label">Max Deposit</span> - <span class="desc-data">$20,000</span>
+                            </li>
+                            <li><span class="desc-label">Capital Deposit Return</span> - <span class="desc-data">12
+                                    Months</span></li>
+
+                            <li><span class="desc-label">Total Return for 12 Months</span> -
+                                <span class="desc-data">50% ROI</span></li>
+                        </ul>
+                        <div class="plan-item-action">
+                            <label for="plan-iv-2" class="plan-label">
+                                <span class="plan-label-base">Choose this plan</span>
+                                <span class="plan-label-selected">Plan Selected</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li><!-- .plan-item -->
+        <li class="plan-item">
+            <input type="radio" id="plan-iv-3" name="plan-iv" value="Gold" class="plan-control">
+            <div class="plan-item-card">
+                <div class="plan-item-head">
+                    <div class="plan-item-heading">
+                        <h4 class="plan-item-title card-title title">Gold</h4>
+                        <p class="sub-text">Advance level of investment to earn more.</p>
+                        <p class="sub-text">This package runs for at least Twelve(12) Months.
+                        </p>
+                    </div>
+                    <div class="plan-item-summary card-text">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="lead-text">300%</span>
+                                <span class="sub-text">Yearly Interest</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="lead-text">Yearly</span>
+                                <span class="sub-text">Term Days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plan-item-body">
+                    <div class="plan-item-desc card-text">
+                        <ul class="plan-item-desc-list">
+                            <li><span class="desc-label">Min Deposit</span> - <span class="desc-data">$200</span></li>
+                            <li><span class="desc-label">Max Deposit</span> - <span class="desc-data">$20,000</span>
+                            </li>
+                            <li><span class="desc-label">Capital Deposit Return</span> - <span class="desc-data">12
+                                    Months</span></li>
+                            <li><span class="desc-label">Total Return for 12 Months</span> -
+                                <span class="desc-data">300% ROI</span></li>
+                        </ul>
+                        <div class="plan-item-action">
+                            <label for="plan-iv-3" class="plan-label">
+                                <span class="plan-label-base">Choose this plan</span>
+                                <span class="plan-label-selected">Plan Selected</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li><!-- .plan-item -->
+    </ul><!-- .plan-list -->
+</div>
+</div><!-- nk-block -->
+</div>
+</div><br>
+<div class="nk-block invest-block">
+    <!-- <form action="" class="invest-form" method="POST"> -->
+    <div class="row g-gs">
+        <div class="col-lg-7">
+            <div class="invest-field form-group">
+                <div class="form-label-group">
+                    <label class="form-label">Choose Amount to Invest</label>
+                </div>
+                <div class="invest-amount-group g-2">
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=40
+                            id="iv-amount-1">
+                        <label class="invest-amount-label" for="iv-amount-1">$ 40</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=100
+                            id="iv-amount-15">
+                        <label class="invest-amount-label" for="iv-amount-15">$ 100</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=200
+                            id="iv-amount-2">
+                        <label class="invest-amount-label" for="iv-amount-2">$ 200</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=400
+                            id="iv-amount-3">
+                        <label class="invest-amount-label" for="iv-amount-3">$ 400</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=600
+                            id="iv-amount-4">
+                        <label class="invest-amount-label" for="iv-amount-4">$ 600</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=800
+                            id="iv-amount-5">
+                        <label class="invest-amount-label" for="iv-amount-5">$ 800</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount"
+                            value=1000 id="iv-amount-6">
+                        <label class="invest-amount-label" for="iv-amount-6">$ 1,000</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=1500
+                            id="iv-amount-7">
+                        <label class="invest-amount-label" for="iv-amount-7">$ 1,500</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=3000
+                            id="iv-amount-8">
+                        <label class="invest-amount-label" for="iv-amount-8">$ 3,000</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=4000
+                            id="iv-amount-9">
+                        <label class="invest-amount-label" for="iv-amount-9">$ 4,000</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=5000
+                            id="iv-amount-10">
+                        <label class="invest-amount-label" for="iv-amount-10">$ 5,000</label>
+                    </div>
+                    <div class="invest-amount-item">
+                        <input onchange="set()" type="radio" class="invest-amount-control" name="iv_amount" value=10000
+                            id="iv-amount-11">
+                        <label class="invest-amount-label" for="iv-amount-11">$ 10,000</label>
+                    </div>
+                    <div class="form-note pt-2">Note: Minimum invest 100 USD and upto 10,000 USD
+                    </div>
+                    <input type="hidden" name="investment-amount" id="investment-amount">
+                    <input type="hidden" name="iv" id="investment-amount">
+                </div>
+            </div><!-- .invest-field -->
+            <div class="invest-field form-group">
+                <div class="form-label-group">
+                    <label class="form-label">Choose Payment Method</label>
+                </div>
+                <input type="hidden" value="wallet" name="iv-wallet" id="invest-choose-wallet">
+                <div class="dropdown invest-cc-dropdown">
+                    <a href="#" class="invest-cc-choosen dropdown-indicator" data-toggle="dropdown">
+                        <div class="coin-item">
+                            <div class="coin-icon">
+                                <em class="icon ni ni-wallet-alt"></em>
+                            </div>
+                            <div class="coin-info">
+                                <span class="coin-name">Account Balance</span>
+                                <span class="coin-text">Current balance: <%=user.accountbal%> USD
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
+                        <ul class="invest-cc-list">
+                            <li class="invest-cc-item selected">
+                                <a href="#" class="invest-cc-opt" data-plan="wallet-balance">
+                                    <div class="coin-item">
+                                        <div class="coin-icon">
+                                            <em class="icon ni ni-wallet-alt"></em>
+                                        </div>
+                                        <div class="coin-info">
+                                            <span class="coin-name">Account Balance</span>
+                                            <span class="coin-text">Current balance:
+                                                <span id="balance"
+                                                    class="coin-text text-success"><%= user.accountbal%></span>
+                                                USD</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li><!-- .invest-cc-item -->
+
+                        </ul>
+                    </div>
+                </div><!-- .dropdown -->
+            </div><!-- .invest-field -->
+            <!-- <div class="invest-field form-group">
+                <div class="custom-control custom-control-xs custom-checkbox">
+                    <input onclick="set()" onchange="document.getElementById('continue').disabled = !this.checked;"
+                        type="checkbox" class="custom-control-input" id="checkbox">
+
+                    <label class="custom-control-label" for="checkbox">I agree the <a href="#">terms
+                            and &amp; conditions.</a></label>
+                </div>
+            </div> -->
+            <!-- .invest-field -->
+        </div><!-- .col -->
+        <script>
+            window.onload = function setamount() {
+                $(document).ready(function () {
+                    $(":radio[name='iv_amount']").change(function () {
+                        if (this.value == 200) {
+                            // console.log("200 selected");
+                        } else if (this.value == 1000) {
+                            // console.log("fire on, Omo Iya");
+                        }
+                    });
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            function set() {
+                    var selected_plan = document.querySelector("input[name=plan-iv]:checked").value;
+                    if (selected_plan == "Bronze") {
+                    document.querySelector("input[name=plan]").value = selected_plan;
+                    document.querySelector("input[name=plan_scheme]").value = "12 Months";
+                    document.querySelector("input[name=interest_rate]").value = 15;
+                    document.querySelector("input[name=term_of_plan]").value = 365;
+                    } else if (selected_plan == "Silver") {
+                    document.querySelector("input[name=plan]").value = selected_plan;
+                    document.querySelector("input[name=plan_scheme]").value = "12 Months";
+                    document.querySelector("input[name=interest_rate]").value = 50;
+                    document.querySelector("input[name=term_of_plan]").value = 365;
+                    } else if (selected_plan == "Gold") {
+                    document.querySelector("input[name=plan]").value = selected_plan;
+                    document.querySelector("input[name=plan_scheme]").value = "12 Months";
+                    document.querySelector("input[name=interest_rate]").value = 300;
+                    document.querySelector("input[name=term_of_plan]").value = 365;
+                    }
+                    //Part 2
+                    var selected_amount = document.querySelector("input[name=iv_amount]:checked").value;
+                    var interest_rate = document.getElementById('interest_rate').value;
+                    var term = document.getElementById('term_of_plan').value;
+                    var acct_balance = document.getElementById('balance').textContent;
+                    var balance = parseInt(acct_balance);
+                    console.log(balance, selected_amount);
+                    if (selected_amount > balance) {
+                    alert("Insufficient Fund!");
+                    document.getElementById('checkbox').checked = false;
+                    } else if (selected_amount <= balance) { var roi=(selected_amount * interest_rate) / 100; var
+                        myDate=new Date(new Date().getTime() + (term * 24 * 60 * 60 * 1000));
+                        document.querySelector("input[name=amount]").value=selected_amount;
+                        document.querySelector("input[name=total_roi]").value=roi;
+                        document.querySelector("input[name=invest]").value=selected_amount;
+                        document.querySelector("input[name=invest_total]").value=selected_amount;
+                        document.querySelector("input[name=start_date]").value=new Date().toLocaleDateString("en-us");
+                        document.querySelector("input[name=end_date]").value=myDate.toLocaleDateString("en-us");
+                        document.getElementById('continue').disabled=false; }
+                }
+                // document.getElementById('continue').disabled = !this.checked;
+        </script>
+        <div class="col-xl-4 col-lg-5 offset-xl-1">
+            <div class="card card-bordered ml-lg-4 ml-xl-0">
+                <div class="nk-iv-wg4">
+                    <div class="nk-iv-wg4-sub">
+                        <h6 class="nk-iv-wg4-title title">Your Investment Details</h6>
+                        <ul class="nk-iv-wg4-overview g-2">
+                            <li>
+                                <div class="sub-text">Name of Plan</div>
+                                <input class="lead-text" style="border: 0;" type="text" name="plan" value="">
+                            </li>
+                            <li>
+                                <div class="sub-text">Term of the scheme</div>
+                                <input class="lead-text" style="border: 0;" type="text" name="plan_scheme" value="">
+                                <input type="hidden" id="term_of_plan" name="term_of_plan" value=0>
+                            </li>
+                            <li>
+                                <div class="sub-text">Interest Rate</div>
+                                <input class="lead-text" style="border: 0;" type="text" id="interest_rate"
+                                    name="interest_rate" value=0>
+                            </li>
+                            <li>
+                                <div class="sub-text">Amount ($)</div>
+                                <input class="lead-text" style="border: 0;" type="text" name="amount" value=0>
+                            </li>
+                            <li>
+                                <div class="sub-text">Total ROI ($)</div>
+                                <input class="lead-text" style="border: 0;" type="text" name="total_roi" value="">
+                            </li>
+                            <hr>
+                            <div class="form-note pt-2">Note: All packages run for at least Twelve (12)
+                                Months</div>
+                            <li>
+                                <div class="sub-text">Term start at: <b>(Today)</b></div>
+                                <input class="lead-text" style="border: 0;" type="text" name="start_date" value=""
+                                    readonly>
+                            </li>
+                            <li>
+                                <div class="sub-text">Term end at</div>
+                                <input class="lead-text" style="border: 0;" type="text" name="end_date" value=""
+                                    readonly>
+                            </li>
+                        </ul>
+                    </div><!-- .nk-iv-wg4-sub -->
+                    <div class="nk-iv-wg4-sub">
+                        <ul class="nk-iv-wg4-list">
+                            <li>
+                                <div class="sub-text">Payment Method</div>
+                                <div class="lead-text">Account Balance</div>
+                            </li>
+                        </ul>
+                    </div><!-- .nk-iv-wg4-sub -->
+                    <div class="nk-iv-wg4-sub">
+                        <ul class="nk-iv-wg4-list">
+                            <li>
+                                <div class="sub-text">Amount to invest ($)</div>
+                                <input class="text-right lead-text" style="border: 0;" type="text" name="invest"
+                                    value="">
+                            </li>
+                        </ul>
+                    </div><!-- .nk-iv-wg4-sub -->
+                    <div class="nk-iv-wg4-sub">
+                        <ul class="nk-iv-wg4-list">
+                            <li>
+                                <div class="lead-text">Total Charge ($)</div>
+                                <input class="text-right caption-text text-primary lead-text" style="border: 0;"
+                                    type="text" name="invest_total" value="">
+                                <!-- <div class="caption-text text-primary">$ 1,000</div> -->
+                            </li>
+                        </ul>
+                    </div><!-- .nk-iv-wg4-sub -->
+                    <div class="nk-iv-wg4-sub text-center bg-lighter">
+                        <button type="submit" id="continue" class="btn btn-lg btn-primary ttu" data-toggle="modal"
+                            data-target="#invest-plan" disabled>Confirm &amp;
+                            proceed</button>
+                    </div><!-- .nk-iv-wg4-sub -->
+                </div><!-- .nk-iv-wg4 -->
+            </div><!-- .card -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+    <!-- </form> -->
+</div><!-- .nk-block -->
+</div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer nk-footer-fluid bg-lighter">
+    <div class="container-xl wide-lg">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 RSGloabal.com.ng Designed by <a href="#"> GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- app-root @e -->
+<script>
+    window.onload = function () {
+        document.getElementById('continue').onclick = function () {
+            var order_number = 'RSGi-' + Math.floor((Math.random() * 100000) + 100000);
+            document.getElementById('amount').textContent = document.querySelector("input[name=amount]").value;
+            document.getElementById('order_id').textContent = order_number;
+            document.querySelector("input[name=i_amount]").value = document.querySelector("input[name=amount]")
+                .value;
+            document.querySelector("input[name=i_roi]").value = document.querySelector("input[name=total_roi]")
+                .value;
+            document.querySelector("input[name=i_plan]").value = document.querySelector("input[name=plan]")
+                .value;
+            document.querySelector("input[name=i_tenor]").value = document.querySelector(
+                "input[name=term_of_plan]").value;
+            document.querySelector("input[name=i_start_date]").value = document.querySelector(
+                "input[name=start_date]").value;
+            document.querySelector("input[name=i_end_date]").value = document.querySelector(
+                "input[name=end_date]").value;
+            document.querySelector("input[name=i_rate]").value = document.querySelector(
+                "input[name=interest_rate]").value;
+            document.querySelector("input[name=i_order_id]").value = order_number;
+        }
+    }
+</script>
+<div class="modal fade" tabindex="-1" id="invest-plan">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-body modal-body-md text-center">
+                <form action="/process-plan" method="post">
+                    <div class="nk-modal">
+                        <h4 class="nk-modal-title">Confirm Your Payment</h4>
+                        <div class="nk-modal-text">
+                            <p>To confirm your payment of $<strong style="font-size: large;" id="amount"
+                                    class="text-primary"></strong>
+                                on this orhidden<strong id="order_id"></strong> using your <strong>Account
+                                    Balance</strong>.
+                                Please enter your Wallet Pin code in order complete the payment or cancel.</p>
+                        </div>
+                        <div class="nk-modal-form">
+                            <div class="form-group">
+                                <input type="password" name="tpin"
+                                    class="form-control form-control-password-big text-center">
+                                <input type="hidden" name="i_plan" value="">
+                                <input type="hidden" name="i_tenor" value="">
+                                <input type="hidden" name="i_rate" value="">
+                                <input type="hidden" name="i_amount" value="">
+                                <input type="hidden" name="i_roi" value="">
+                                <input type="hidden" name="i_start_date" value="">
+                                <input type="hidden" name="i_end_date" value="">
+                                <input type="hidden" name="i_order_id" value="">
+                                <input type="hidden" name="username" value="<%=user.username%>">
+                            </div>
+                        </div>
+                        <div class="nk-modal-action">
+                            <!-- <button type="submit" class="btn btn-lg btn-mw btn-primary" data-dismiss="modal" data-toggle="modal"
+                                data-target="#confirm-invest">Confirm Payment</button> -->
+                            <button type="submit" class="btn btn-lg btn-mw btn-primary">Confirm Payment</button>
+                            <div class="sub-text sub-text-alt mt-3 mb-4">This transaction will appear on your wallet
+                                statement as Invest * SILVER.</div>
+                            <a href="#" class="link link-soft" data-dismiss="modal">Cancel and return</a>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- .modal-body -->
+        </div><!-- .modal-content -->
+    </div><!-- .modla-dialog -->
+</div><!-- .modal -->
+<!-- @@ Confirm Invest Modal @e -->
+<div class="modal fade" tabindex="-1" id="confirm-invest">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+            <div class="modal-body modal-body-lg text-center">
+                <div class="nk-modal">
+                    <em class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-check bg-success"></em>
+                    <h4 class="nk-modal-title">Successfully sent payment!</h4>
+                    <div class="nk-modal-text">
+                        <p class="sub-text">You have successfully order the Investment Plan of <strong>‘Silver’</strong>
+                            with amount of <strong>$1,000</strong> using your <strong>Account Balance</strong>.</p>
+                    </div>
+                    <div class="nk-modal-action-lg">
+                        <ul class="btn-group flex-wrap justify-center g-4">
+                            <li><a href="#" class="btn btn-lg btn-mw btn-primary">More Invest</a></li>
+                            <li><a href="#" class="btn btn-lg btn-mw btn-dim btn-primary"><em
+                                        class="icon ni ni-reports"></em><span>See the plan</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- .modal-body -->
+            <div class="modal-footer bg-lighter">
+                <div class="text-center w-100">
+                    <p>Earn upto 5% for each friend your refer! <a href="#">Invite friends</a></p>
+                </div>
+            </div>
+        </div><!-- .modal-content -->
+    </div><!-- .modla-dialog -->
+</div><!-- .modal -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

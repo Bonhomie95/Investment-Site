@@ -1,0 +1,177 @@
+<%- include ('partials/header') -%>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head">
+                                <div class="nk-block-head-content">
+                                    <div class="nk-block-head-sub"><a href="investment-history.html" class="text-soft back-to"><em class="icon ni ni-arrow-left"> </em><span>My Investment</span></a></div>
+                                    <div class="nk-block-between-md g-4">
+                                        <div class="nk-block-head-content">
+                                            <%if(invest.plan == "Bronze"){%>
+                                           <h2 class="nk-block-title fw-normal">
+                                               <%= invest.plan + " - " + invest.rate + "%" + " Monthly for 6 Months"  %>
+                                           </h2>
+                                            <%}else if(invest.plan == "Silver"){%>
+                                                <h2 class="nk-block-title fw-normal">
+                                                   <%= invest.plan + " - " + invest.rate + "%" + " Quarterly for 12 Months"  %>
+                                                </h2>
+                                            
+                                            <%}else if(invest.plan == "Gold"){%>
+                                                <h2 class="nk-block-title fw-normal">
+                                                    <%= invest.plan + " - " + invest.rate + "%" + " Annually for 12 Months"  %>
+                                                </h2>
+                                            <%}%>
+                                            <div class="nk-block-des">
+                                                <p><%=invest.order_id%> <span class="badge badge-outline badge-primary">Running</span></p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div><!-- .nk-block-head -->
+                            <div class="nk-block">
+                                <div class="card card-bordered">
+                                    <div class="card-inner">
+                                        <div class="row gy-gs">
+                                            <div class="col-md-6">
+                                                <div class="nk-iv-wg3">
+                                                    <div class="nk-iv-wg3-group flex-lg-nowrap gx-4">
+                                                        <div class="nk-iv-wg3-sub">
+                                                            <div class="nk-iv-wg3-amount">
+                                                                <div class="number"><%= invest.amount %>.00</div>
+                                                            </div>
+                                                            <div class="nk-iv-wg3-subtitle">Invested Amount</div>
+                                                        </div>
+                                                        <div class="nk-iv-wg3-sub">
+                                                            <span class="nk-iv-wg3-plus text-soft"><em class="icon ni ni-plus"></em></span>
+                                                            <div class="nk-iv-wg3-amount">
+                                                                <div class="number"><%= invest.roi * invest.counter %> <span class="number-up"><%= invest.rate %>%</span></div>
+                                                            </div>
+                                                            <div class="nk-iv-wg3-subtitle">Profit Earned</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .col -->
+                                            
+                                        </div><!-- .row -->
+                                    </div>
+                                     <%var options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }%>
+                                    <div id="schemeDetails" class="nk-iv-scheme-details">
+                                        <ul class="nk-iv-wg3-list">
+                                            <li>
+                                                <div class="sub-text">Term</div>
+                                                <div class="lead-text"> 
+                                                    <%if(invest.plan == "Bronze"){%>
+                                                    6 Months
+                                                    <%}else if(invest.plan == "Silver"){%>
+                                                    12 Months
+                                                    <%}else if(invest.plan == "Gold"){%>
+                                                    12 Months
+                                                    <%}%>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Term start at</div>
+                                                <div class="lead-text">
+                                                    <%= invest.start_date.toLocaleDateString("en-US", options) %></div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Term end at</div>
+                                                <div class="lead-text">
+                                                    <%= invest.end_date.toLocaleDateString("en-US", options) %></div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Quarterly interest</div>
+                                                <div class="lead-text"><%= invest.rate %>%</div>
+                                            </li>
+                                        </ul><!-- .nk-iv-wg3-list -->
+                                        <ul class="nk-iv-wg3-list">
+                                            <li>
+                                                <div class="sub-text">Ordered date</div>
+                                                <div class="lead-text">
+                                                    <%= invest.start_date.toLocaleDateString("en-US", options) %></div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Approved date</div>
+                                                <div class="lead-text"></div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Payment method</div>
+                                                <div class="lead-text">Account Balance</div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Paid <small>(fee include)</small></div>
+                                                <div class="lead-text"><span class="currency currency-usd">USD</span> <%= invest.amount.toLocaleString() %></div>
+                                            </li>
+                                        </ul><!-- .nk-iv-wg3-list -->
+                                        <ul class="nk-iv-wg3-list">
+                                            <li>
+                                                <div class="sub-text">Capital invested</div>
+                                                <div class="lead-text"><span class="currency currency-usd">USD</span>
+                                                    <%= invest.amount.toLocaleString() %></div>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Total ROI</div>
+                                                <div class="lead-text"><span class="currency currency-usd">USD
+                                                    <%if(invest.plan == "Bronze"){%>
+                                                    </span><%= (invest.roi * 6).toLocaleString() %> </div>
+                                                    <%}else if(invest.plan == "Silver"){%>
+                                                    </span><%= (invest.roi * 4).toLocaleString() %> </div>
+                                                    <%}else if(invest.plan == "Gold"){%>
+                                                    </span><%= (invest.roi).toLocaleString()%> </div>
+                                                    <%}%>
+                                            </li>
+                                            <li>
+                                                <div class="sub-text">Total Return</div>
+                                                <%if(invest.plan == "Bronze"){%>
+                                                    <%var monthly_return = invest.roi * 6;%>
+                                                <%}else if(invest.plan == "Silver"){%>
+                                                    <%var monthly_return = invest.roi * 4;%>
+                                                <%}else if(invest.plan == "Gold"){%>
+                                                    <%var monthly_return = invest.roi;%>
+                                                <%}%>
+                                                <% var total = parseInt(monthly_return) + parseInt(invest.amount)%>
+                                                <div class="lead-text"><span class="currency currency-usd">USD</span>
+                                                    <b><%= total.toLocaleString() %></b></div>
+                                            </li>
+                                        </ul>
+                                        <!-- .nk-iv-wg3-list -->
+                                    </div><!-- .nk-iv-scheme-details -->
+                                </div>
+                            </div><!-- .nk-block -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer nk-footer-fluid bg-lighter">
+                <div class="container-xl wide-lg">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright"> &copy; 2020 RSGlobal.com.ng Designed by <a href="#"> GGDC</a>
+                        </div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

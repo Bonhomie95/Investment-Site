@@ -1,0 +1,162 @@
+<%- include ('partials/header') -%>
+    <!-- main header @e -->
+    <!-- content @s -->
+    <div class="nk-content ">
+        <div class="container-fluid">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head nk-block-head-sm">
+                        <div class="nk-block-between">
+                            <div class="nk-block-head-content">
+                                <h3 class="nk-block-title page-title">Manage Users</h3>
+
+                            </div><!-- .nk-block-head-content -->
+
+                        </div><!-- .nk-block-between -->
+                    </div><!-- .nk-block-head -->
+                    <div class="nk-block">
+                        <div class="row g-gs">
+                            <div class="col-md-12">
+
+                                <div class="card-inner p-0">
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+
+                                            <div class="nk-tb-col"><span class="sub-text">User</span></div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text">Username</span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text">Email</span></div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text">Address</span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text">Verified</span>
+                                            </div>
+                                            <div class="nk-tb-col"><span class="sub-text">Status</span></div>
+                                        </div><!-- .nk-tb-item -->
+                                        <%users.forEach((user)=>{%>
+                                            <div class="nk-tb-item">
+
+                                                <div class="nk-tb-col">
+                                                    <div class="user-card">
+                                                        <div class="user-avatar xs bg-primary">
+                                                            <span>
+                                                                <%= user.firstname.substring(0,1)+
+                                                                    user.lastname.substring(0,1) %>
+                                                            </span>
+                                                        </div>
+                                                        <div class="user-name">
+                                                            <span class="tb-lead">
+                                                                <%= user.firstname + " " +user.lastname %>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-tb-col tb-col-md">
+                                                    <span>
+                                                        <%= user.username %>
+                                                    </span>
+                                                </div>
+                                                <div class="nk-tb-col tb-col-sm">
+                                                    <span>
+                                                        <%= user.email %>
+                                                    </span>
+                                                </div>
+                                                <div class="nk-tb-col tb-col-md">
+                                                    <span>
+                                                        <%= user.phonenumber %>
+                                                    </span>
+                                                </div>
+                                                <div class="nk-tb-col tb-col-lg">
+                                                    <span>
+                                                        <%= user.address %>
+                                                    </span>
+                                                </div>
+                                                <div class="nk-tb-col tb-col-lg">
+                                                    <ul class="list-status">
+                                                        <li><em class="icon text-success ni ni-check-circle"></em>
+                                                            <span>Email</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="nk-tb-col">
+                                                    <%if(user.status==0){%>
+                                                        <span class="tb-status text-success">Active</span>
+                                                        <%}else if(user.status==1){%>
+                                                            <span class="tb-status text-danger">Suspended</span>
+                                                            <%}%>
+                                                </div>
+                                                <div class="nk-tb-col nk-tb-col-tools">
+                                                    <ul class="nk-tb-actions gx-2">
+
+                                                        <li>
+                                                            <div class="drodown">
+                                                                <a href="#"
+                                                                    class="btn btn-sm btn-icon btn-trigger dropdown-toggle"
+                                                                    data-toggle="dropdown" aria-expanded="false"><em
+                                                                        class="icon ni ni-more-h"></em></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <ul class="link-list-opt no-bdr">
+                                                                        <li><a href="/user/<%=user.username%>"><em
+                                                                                    class="icon ni ni-eye"></em><span>View
+                                                                                    Details</span></a></li>
+                                                                                    <li class="divider"></li>
+                                                                        <li><a href="/reset_password/<%=user.username%>"><em
+                                                                                    class="icon ni ni-shield-star"></em><span>Reset
+                                                                                    Password</span></a></li>
+                                                                        <li class="divider"></li>
+                                                                        <li><a href="/suspend/<%=user.username%>"><em
+                                                                                    class="icon ni ni-na"></em><span>Suspend
+                                                                                    User</span></a></li>
+                                                                        <li><a href="/reactivate/<%=user.username%>"><em
+                                                                                    class="icon ni ni-shield-off"></em><span>Re-Activate
+                                                                                    User</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <%})%>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content @e -->
+    <!-- footer @s -->
+    <div class="nk-footer">
+        <div class="container-fluid">
+            <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> &copy; 2020 Real Source Global Invesment Ltd. Designed by
+                    <a href="#">GGDC</a>
+                </div>
+                <div class="nk-footer-links">
+                    <ul class="nav nav-sm">
+                        <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer @e -->
+    </div>
+    <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/gd-invest.js?ver=1.4.0"></script>
+    </body>
+
+    </html>

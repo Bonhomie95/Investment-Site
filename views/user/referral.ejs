@@ -1,0 +1,153 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            
+                            <div class="nk-block">
+                                <div class="nk-news card card-bordered">
+                                    <div class="card-inner">
+                                        <div class="nk-news-list">
+                                            <a class="nk-news-item" href="#">
+                                                <div class="nk-news-icon">
+                                                    <em class="icon ni ni-card-view"></em>
+                                                </div>
+                                                <div class="nk-news-text">
+                                                    <p>Do you know the latest update of 2019? <span> A overview of our is now available on YouTube</span></p>
+                                                    <em class="icon ni ni-external"></em>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .nk-block -->                              
+                            
+                            <div class="nk-block">
+                                <div class="card card-bordered">
+                                    <div class="nk-refwg">
+                                        <div class="nk-refwg-invite card-inner">
+                                            <div class="nk-refwg-head g-3">
+                                                <div class="nk-refwg-title">
+                                                    <h5 class="title">Refer & Earn</h5>
+                                                    <div class="title-sub">Use the below link to invite your friends.</div>
+                                                </div>
+                                                <div class="nk-refwg-action">
+                                                    <a href="#" class="btn btn-primary">Invite</a>
+                                                </div>
+                                            </div>
+                                            <div class="nk-refwg-url">
+                                                <div class="form-control-wrap">
+                                                    <div class="form-clip clipboard-init" data-clipboard-target="#refUrl" data-success="Copied" data-text="Copy Link"><em class="clipboard-icon icon ni ni-copy"></em> <span class="clipboard-text">Copy Link</span></div>
+                                                    <div class="form-icon">
+                                                        <em class="icon ni ni-link-alt"></em>
+                                                    </div>
+                                                    <input type="text" class="form-control copy-text" id="refUrl" value="https://app.rsglobal.com.ng/register/<%= user._id %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nk-refwg-stats card-inner bg-lighter">
+                                            <div class="nk-refwg-group g-3">
+                                                <div class="nk-refwg-name">
+                                                    <h6 class="title">My Referral <em class="icon ni ni-info" data-toggle="tooltip" data-placement="right" title="Referral Informations"></em></h6>
+                                                </div>
+                                                <div class="nk-refwg-info g-3">
+                                                    <div class="nk-refwg-sub">
+                                                        <div class="title"><%= user.referred_count %></div>
+                                                        <div class="sub-text">Total Joined</div>
+                                                    </div>
+                                                    <div class="nk-refwg-sub">
+                                                        <div class="title">$<%= user.referral_earning %></div>
+                                                        <div class="sub-text">Referral Earn</div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-refwg-more dropdown mt-n1 mr-n1">
+                                                    <a href="#" class="btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
+                                                        <ul class="link-list-plain sm">
+                                                            <li><a href="#">Referral</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="nk-refwg-ck">
+                                                <canvas class="chart-refer-stats" id="refBarChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .nk-block -->
+
+                            <div class="nk-block">
+                                <div class="card card-bordered">
+                                    <div class="card-inner">
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Username</th>
+                                                <th scope="col">Name</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% referrals.forEach(function(referral){%>
+                                                        <tr>
+                                                            <th class="count" scope="row"></th>
+                                                            <td><%= referral.firstname + " " + referral.lastname %></td>
+                                                            <td><%= referral.username %></td>
+                                                        </tr>
+                                                <% }) %>
+                                              <!-- <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>the Bird</td>
+                                              </tr> -->
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .nk-block -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer nk-footer-fluid bg-lighter">
+                <div class="container-xl wide-lg">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright"> &copy; 2020 RSGloabal.com.ng Designed by <a href="#"> GGDC</a>
+                        </div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>

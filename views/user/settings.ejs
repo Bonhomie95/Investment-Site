@@ -1,0 +1,185 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <% if(type != "" && heading != "" && message != ""){ %>
+                              <div style="text-align: center;" class="alert alert-<%=type%>">
+                                  <strong><%=heading%></strong><br><%=message%>
+                                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                              </div>
+                              <%}else{%>
+
+                              <%}%>
+                            <div class="nk-block-head">
+                                <div class="nk-block-head-content">
+                                    <div class="nk-block-head-sub"><a class="back-to" href="profile.html"><em class="icon ni ni-arrow-left"></em><span>My Profile</span></a></div>
+                                    <h2 class="nk-block-title fw-normal">Security Setting</h2>
+                                    <div class="nk-block-des">
+                                        <p>You have full control to manage your own account setting. <span class="text-primary"><em class="icon ni ni-info"></em></span></p>
+                                    </div>
+                                </div>
+                            </div><!-- .nk-block-head -->
+                            <ul class="nk-nav nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/profile/<%= user.username %>">Personal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/settings/<%= user.username %>">Security<span class="d-none s-sm-inline"> Setting</span></a>
+                                </li>
+                            </ul><!-- .nav-tabs -->
+                            <div class="nk-block">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h5 class="nk-block-title">Security Settings</h5>
+                                        <div class="nk-block-des">
+                                            <p>These settings are helps you keep your account secure.</p>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <div class="card card-bordered">
+                                    <div class="card-inner-group">
+                                        <div class="card-inner">
+                                            <div class="between-center flex-wrap flex-md-nowrap g-3">
+                                                <div class="nk-block-text">
+                                                    <h6>Change Password</h6>
+                                                    <p>Set a unique password to protect your account.</p>
+                                                </div>
+                                                <div class="nk-block-actions flex-shrink-sm-0">
+                                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-3 gy-2">
+                                                        <!-- <li class="order-md-last">
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">Change Password</button>
+                                                        </li> -->
+                                                        <li>
+                                                            <!-- <em class="text-soft text-date fs-12px">Last changed: <span>Oct 2, 2019</span></em> -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- .card-inner -->
+
+                                        <div class="card-inner">
+                                            <div class="between-center flex-wrap flex-md-nowrap g-3">
+                                                <div class="nk-block-text">
+                                                    <h6>Change Transaction Pin</h6>
+                                                    <p>Set Unique 4 Digit Pin</p>
+                                                </div>
+                                                <div class="nk-block-actions flex-shrink-sm-0">
+                                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-3 gy-2">
+                                                        <li class="order-md-last">
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormPin">Change Pin</button>
+                                                        </li>
+                                                        <li>
+                                                            <!-- <em class="text-soft text-date fs-12px">Last changed: <span>Oct 2, 2019</span></em> -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- .card-inner -->
+                                        
+                                    </div><!-- .card-inner-group -->
+                                </div><!-- .card -->
+                            
+                            </div><!-- .nk-block -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer nk-footer-fluid bg-lighter">
+                <div class="container-xl wide-lg">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright"> &copy; 2020 RSGloabal.com.ng Designed by <a href="#"> GGDC</a>
+                        </div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/chart-invest.js?ver=1.4.0"></script>
+</body>
+  <!-- Modal Form -->
+  <div class="modal fade" tabindex="-1" id="modalForm">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <script type="text/javascript">
+                </script>
+                <form action="/change-password/<%= user.username %>" method="POST" class="form-validate is-alter">
+                    <div class="form-group">
+                        <label class="form-label" for="previous-password">Previous Password</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="previous-password" name="previous_password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="new-password">New Password</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="new_password" name="new_password" required>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="form-label" for="verify-new-passowrd">Verify New Password</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="confirm_password" name="confirm_password" required>
+                        </div>
+                    </div> -->
+                
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="modalFormPin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/change-pin/<%= user.username %>" method="POST" class="form-validate is-alter">
+                    <div class="form-group">
+                        <label class="form-label" for="previous-password">Previous Pin</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="previous_pin" name="previous_pin" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="new-password">New Pin</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="new_pin" name="new_pin" required>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="form-label" for="verify-new-passowrd">Verify New Pin</label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" id="confirm_pin" name="confirm_pin" required>
+                        </div>
+                    </div> -->
+                
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="eng" class="js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Softnio" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="@@page-discription" />
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <!-- Page Title  -->
+    <title>Registration | Real Source Global Investment Company</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="../assets/css/dashlite.css?ver=1.4.0" />
+    <link
+      id="skin-default"
+      rel="stylesheet"
+      href="../assets/css/theme.css?ver=1.4.0"
+    />
+  </head>
+
+  <body class="nk-body npc-crypto ui-clean pg-auth">
+    <% if(type != "" && heading != "" && message != ""){ %>
+    <div style="text-align: center" class="alert alert-<%=type%>">
+      <strong><%=heading%></strong><br /><%=message%>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <%}else{%> <%}%>
+
+    <!-- app body @s -->
+    <div class="nk-app-root">
+      <div class="nk-split nk-split-page nk-split-md">
+        <div
+          class="nk-split-content nk-block-area nk-block-area-column nk-auth-container w-lg-45"
+        >
+          <div class="absolute-top-right d-lg-none p-3 p-sm-5">
+            <a
+              href="#"
+              class="toggle btn btn-white btn-icon btn-light"
+              data-target="athPromo"
+              ><em class="icon ni ni-info"></em
+            ></a>
+          </div>
+          <div class="nk-block nk-block-middle nk-auth-body">
+            <div class="brand-logo pb-5">
+              <a href="#" class="logo-link">
+                <img
+                  class="logo-light logo-img logo-img-lg"
+                  src="../images/logo.png"
+                  alt="logo"
+                />
+                <img
+                  class="logo-dark logo-img logo-img-lg"
+                  src="../images/logo-dark.png"
+                  alt="logo-dark"
+                />
+              </a>
+            </div>
+            <div class="nk-block-head">
+              <div class="nk-block-head-content">
+                <h5 class="nk-block-title">Register</h5>
+                <div class="nk-block-des">
+                  <p>Create a New Investment Account</p>
+                </div>
+              </div>
+            </div>
+            <!-- .nk-block-head -->
+            <script>
+              // Run on page load
+              window.onload = function () {
+                // If sessionStorage is storing default values (ex. name), exit the function and do not restore data
+                if (sessionStorage.getItem("fname") == "fname") {
+                  return;
+                }
+
+                // If values are not blank, restore them to the fields
+                var fname = sessionStorage.getItem("fname");
+                if (fname !== null) $("#fname").val(fname);
+
+                var lname = sessionStorage.getItem("lname");
+                if (lname !== null) $("#lname").val(lname);
+
+                var username = sessionStorage.getItem("username");
+                if (username !== null) $("#username").val(username);
+
+                var email = sessionStorage.getItem("email");
+                if (email !== null) $("#email").val(email);
+
+                var tpin = sessionStorage.getItem("tpin");
+                if (tpin !== null) $("#tpin").val(tpin);
+
+                var epin = sessionStorage.getItem("epin");
+                if (epin !== null) $("#epin").val(epin);
+              };
+              // Before refreshing the page, save the form data to sessionStorage
+              window.onbeforeunload = function () {
+                sessionStorage.setItem("fname", $("#fname").val());
+                sessionStorage.setItem("lname", $("#lname").val());
+                sessionStorage.setItem("username", $("#username").val());
+                sessionStorage.setItem("email", $("#email").val());
+                sessionStorage.setItem("tpin", $("#tpin").val());
+                sessionStorage.setItem("epin", $("#epin").val());
+              };
+            </script>
+            <form action="/register" method="POST" autocomplete="on">
+              <div class="form-group">
+                <label class="form-label" for="name">First Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="fname"
+                  id="fname"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="name">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="lname"
+                  id="lname"
+                  placeholder="Enter your full name"
+                  required
+                />
+              
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="username">Referral</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="referral"
+                  value="<%= referral %>"
+                  placeholder="Enter Your Referral Username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="username">Username</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="username"
+                  id="username"
+                  placeholder="Enter your username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control form-control-lg"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="number">Transaction Pin</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="tpin"
+                  id="tpin"
+                  placeholder="Enter your Transaction Pin"
+                  maxlength="4"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <div class="form-control-wrap">
+                  <a
+                    tabindex="-1"
+                    href="#"
+                    class="form-icon form-icon-right passcode-switch"
+                    data-target="password"
+                  >
+                    <em class="passcode-icon icon-show icon ni ni-eye"></em>
+                    <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                  </a>
+                  <input
+                    type="password"
+                    class="form-control form-control-lg"
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="number">E-Pin</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="epin"
+                  id="epin"
+                  placeholder="Enter your E-Pin to fund your wallet"
+                  required
+                />
+                <!-- <div class="form-note-s2 pt-4"> E-pin Value <strong>$500</strong></div> -->
+              </div>
+              <div class="form-group">
+                <div class="custom-control custom-control-xs custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="checkbox"
+                    onchange="document.getElementById('register').disabled = !this.checked;"
+                  />
+                  <label class="custom-control-label" for="checkbox"
+                    >I agree to Real Source Global Investment Company
+                    <a tabindex="-1" href="#">Privacy Policy</a> &amp;
+                    <a tabindex="-1" href="#"> Terms.</a></label
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  id="register"
+                  class="btn btn-lg btn-primary btn-block"
+                  disabled
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+            <!-- form -->
+            <div class="form-note-s2 pt-4">
+              Already have an account ?
+              <a href="/"><strong>Sign in instead</strong></a>
+            </div>
+          </div>
+          <!-- .nk-block -->
+          <div class="nk-block nk-auth-footer">
+            <div class="nk-block-between">
+              <ul class="nav nav-sm">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Terms & Condition</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Help</a>
+                </li>
+                <li class="nav-item dropup">
+                  <a
+                    class="dropdown-toggle dropdown-indicator has-indicator nav-link"
+                    data-toggle="dropdown"
+                    data-offset="0,10"
+                    ><small>English</small></a
+                  >
+                  <div
+                    class="dropdown-menu dropdown-menu-sm dropdown-menu-right"
+                  >
+                    <ul class="language-list">
+                      <li>
+                        <a href="#" class="language-item">
+                          <img
+                            src="../images/flags/english.png"
+                            alt=""
+                            class="language-flag"
+                          />
+                          <span class="language-name">English</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="language-item">
+                          <img
+                            src="../images/flags/spanish.png"
+                            alt=""
+                            class="language-flag"
+                          />
+                          <span class="language-name">Español</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="language-item">
+                          <img
+                            src="../images/flags/french.png"
+                            alt=""
+                            class="language-flag"
+                          />
+                          <span class="language-name">Français</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="language-item">
+                          <img
+                            src="../images/flags/turkey.png"
+                            alt=""
+                            class="language-flag"
+                          />
+                          <span class="language-name">Türkçe</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+              <!-- nav -->
+            </div>
+            <div class="mt-3">
+              <p>
+                &copy; 2020 Real Source Global Investment Company All Rights
+                Reserved.
+              </p>
+            </div>
+          </div>
+          <!-- nk-block -->
+        </div>
+        <!-- nk-split-content -->
+        <div
+          class="nk-split-content nk-split-stretch bg-lighter d-flex toggle-break-lg toggle-slide toggle-slide-right"
+          data-content="athPromo"
+          data-toggle-screen="lg"
+          data-toggle-overlay="true"
+        >
+          <div class="slider-wrap w-100 w-max-550px p-3 p-sm-5 m-auto">
+            <div class="slider-init" data-slick='{"dots":true, "arrows":false}'>
+              <div class="slider-item">
+                <div class="nk-feature nk-feature-center">
+                  <div class="nk-feature-img">
+                    <img
+                      class="round"
+                      src="../images/slides/promo-a.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="nk-feature-content py-4 p-sm-5">
+                    <h4>Dashlite</h4>
+                    <p>
+                      You can start to create your products easily with its
+                      user-friendly design & most completed responsive layout.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- .slider-item -->
+              <div class="slider-item">
+                <div class="nk-feature nk-feature-center">
+                  <div class="nk-feature-img">
+                    <img
+                      class="round"
+                      src="../images/slides/promo-b.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="nk-feature-content py-4 p-sm-5">
+                    <h4>Dashlite</h4>
+                    <p>
+                      You can start to create your products easily with its
+                      user-friendly design & most completed responsive layout.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- .slider-item -->
+              <div class="slider-item">
+                <div class="nk-feature nk-feature-center">
+                  <div class="nk-feature-img">
+                    <img
+                      class="round"
+                      src="../images/slides/promo-c.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="nk-feature-content py-4 p-sm-5">
+                    <h4>Dashlite</h4>
+                    <p>
+                      You can start to create your products easily with its
+                      user-friendly design & most completed responsive layout.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- .slider-item -->
+            </div>
+            <!-- .slider-init -->
+            <div class="slider-dots"></div>
+            <div class="slider-arrows"></div>
+          </div>
+          <!-- .slider-wrap -->
+        </div>
+        <!-- nk-split-content -->
+      </div>
+      <!-- nk-split -->
+    </div>
+    <!-- app body @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+  </body>
+</html>

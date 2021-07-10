@@ -1,0 +1,330 @@
+<%- include ('partials/header') -%>
+    <!-- main header @e -->
+    <!-- content @s -->
+    <div class="nk-content ">
+        <div class="container-fluid">
+            <div class="nk-content-inner">
+                <div class="nk-content-body">
+                    <div class="nk-block-head nk-block-head-sm">
+                        <div class="nk-block-between">
+                        </div><!-- .nk-block-between -->
+                    </div><!-- .nk-block-head -->
+                    <div class="nk-block text-dark">
+                        <div class="row g-gs">
+                            <div class="col-md-12">
+                                <div class="card-inner p-0">
+                                    <div class="card-header"><b>User Details</b></div>
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+                                            <div class="nk-tb-col"><span class="sub-text"><b>FullName</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Username</b></span></div>
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text"><b>Address</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text"><b>Email</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Phone Number</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Status</b></span></div>
+                                        </div><!-- .nk-tb-item -->
+                                        <div class="nk-tb-item">
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= user.firstname + " " + user.lastname %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= user.username %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    <%= user.address %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    <%= user.email %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= user.phonenumber %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <%if(user.status == 0){%>
+                                                    <span class="badge badge-success">Active</span>
+                                                <%}else if(user.status == 1){%>
+                                                    <span class="badge badge-danger">Suspended</span>
+                                                <%}%>
+                                            </div>
+                                        </div>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-inner p-0">
+                                    <div class="card-header"><b>Account Details</b></div>
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Bank Name</b></span></div>
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text"><b>Account Name</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text"><b>Account Number</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Account
+                                                        Balance</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Referral
+                                                        Balance</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>ROI Balance</b></span>
+                                            </div>
+                                        </div><!-- .nk-tb-item -->
+                                        <div class="nk-tb-item">
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= user.bankname %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    <%= user.accountname %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= user.banknumber %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= user.accountbal.toLocaleString() %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= user.referral_earning.toLocaleString() %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= user.roi_earning.toLocaleString() %>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-inner p-0">
+                                    <div class="card-header"><b>Investments</b></div>
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text"><b>Order ID</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text"><b>Plan</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Tenure</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Investment</b></span>
+                                            </div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Rate</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>ROI</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Start Date</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>End Date</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Status</b></span></div>
+                                        </div><!-- .nk-tb-item -->
+                                        <%investments.forEach((investment)=>{%>
+                                        <div class="nk-tb-item">
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= investment.order_id %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    <%= investment.plan %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= investment.tenure %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= investment.amount.toLocaleString() %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= investment.rate %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= investment.roi %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= investment.start_date.toLocaleDateString()%>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= investment.end_date.toLocaleDateString() %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                    <%if(investment.status == "Active"){%>
+                                                        <span class="badge badge-success">Running</span>
+                                                    <%}else if(investment.status == "Inactive"){%>
+                                                        <span class="badge badge-warning">Inactive</span>
+                                                    <%}%>
+                                            </div>
+                                        </div>
+                                        <%})%>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-inner p-0">
+                                    <div class="card-header"><b>Withdrawals</b></div>
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text"><b>Order ID</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text"><b>Source</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Amount</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Bank Name</b></span>
+                                            </div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Account Name</b></span></div>
+                                            <div class="nk-tb-col tb-col-lg"><span class="sub-text"><b>Account Number</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Submitted Date</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Approved Date</b></span></div>
+                                            <div class="nk-tb-col"><span class="sub-text"><b>Status</b></span></div>
+                                        </div><!-- .nk-tb-item -->
+                                        <%withdrawals.forEach((withdrawal)=>{%>
+                                        <div class="nk-tb-item">
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= withdrawal.order_id %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    <%= withdrawal.trx_account %> Balance
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= withdrawal.amount.toLocaleString() %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= withdrawal.bankname %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= withdrawal.account_name %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= withdrawal.account_no %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%= withdrawal.submitted.toLocaleDateString()%>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                <span>
+                                                    <%if(!withdrawal.approved){%>
+                                                    <%}else{%>
+                                                        <%= withdrawal.approved.toLocaleDateString() %>
+                                                    <%}%>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-lg">
+                                                    <%if(withdrawal.status == "Completed"){%>
+                                                        <span class="badge badge-success">Running</span>
+                                                    <%}else if(withdrawal.status == "Pending"){%>
+                                                        <span class="badge badge-warning">Inactive</span>
+                                                    <%}else if(withdrawal.status == "Declined"){%>
+                                                        <span class="badge badge-danger">Declined</span>
+                                                    <%}%>
+                                            </div>
+                                        </div>
+                                        <%})%>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-inner p-0">
+                                    <div class="card-header"><b>Deposits via E-Pin</b></div>
+                                    <div class="nk-tb-list nk-tb-ulist is-compact">
+                                        <div class="nk-tb-item nk-tb-head">
+                                            <div class="nk-tb-col tb-col-sm"><span class="sub-text"><b>EPin Serial</b></span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-md"><span class="sub-text"><b>Value</b></span></div>
+                                        </div><!-- .nk-tb-item -->
+                                        <%pins.forEach((pin)=>{%>
+                                        <div class="nk-tb-item">
+                                            <div class="nk-tb-col tb-col-md">
+                                                <span>
+                                                    <%= pin.pin %>
+                                                </span>
+                                            </div>
+                                            <div class="nk-tb-col tb-col-sm">
+                                                <span>
+                                                    $ <%= pin.value %>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <%})%>
+                                    </div><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- content @e -->
+    <!-- footer @s -->
+    <div class="nk-footer">
+        <div class="container-fluid">
+            <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> &copy; 2020 Real Source Global Invesment Ltd. Designed by
+                    <a href="#">GGDC</a>
+                </div>
+                <div class="nk-footer-links">
+                    <ul class="nav nav-sm">
+                        <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer @e -->
+    </div>
+    <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script src="../assets/js/bundle.js?ver=1.4.0"></script>
+    <script src="../assets/js/scripts.js?ver=1.4.0"></script>
+    <script src="../assets/js/charts/gd-invest.js?ver=1.4.0"></script>
+    </body>
+
+    </html>

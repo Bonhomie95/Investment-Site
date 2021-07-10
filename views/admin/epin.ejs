@@ -1,0 +1,236 @@
+<%- include ('partials/header') -%>
+<!-- main header @e -->
+<!-- content @s -->
+<script>
+    window.onload = function () {
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    }
+</script>
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block-head nk-block-head-sm">
+                    <div class="nk-block-between">
+                        <div class="nk-block-head-content">
+                            <h3 class="nk-block-title page-title">Epin Management</h3>
+
+                        </div><!-- .nk-block-head-content -->
+
+                    </div><!-- .nk-block-between -->
+                </div><!-- .nk-block-head -->
+                <div class="nk-block">
+                    <div class="row g-gs">
+                        <div class="col-md-12">
+                            <script>
+                                window.onload = function () {
+                                    document.getElementById('create').disabled = true;
+                                }
+                            </script>
+                            <script>
+                                function set() {
+                                    var serial_number = Math.floor((Math.random() * 9000000000000000) + 1022324056788675);
+                                    var selected_amount = document.querySelector("input[name=iv-amount]:checked").value;
+                                    document.getElementById('value').value = selected_amount;
+                                    document.getElementById('serial').value = serial_number;
+                                    document.getElementById('create').disabled = false;
+                                }
+                            </script>
+                            <div class="nk-block invest-block">
+                                <div class="row g-gs">
+                                    <div class="col-lg-7">
+                                        <div class="invest-field form-group">
+                                            <div class="form-label-group">
+                                                <label class="form-label">Choose Epin Amount to Generate</label>
+                                            </div>
+                                            <div class="invest-amount-group g-2">
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount" id="iv-amount-20" value=40>
+                                                    <label class="invest-amount-label" for="iv-amount-20">$
+                                                        40</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-1" value=100>
+                                                    <label class="invest-amount-label" for="iv-amount-1">$
+                                                        100</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-2" value=200>
+                                                    <label class="invest-amount-label" for="iv-amount-2">$
+                                                        200</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-3" value=400>
+                                                    <label class="invest-amount-label" for="iv-amount-3">$
+                                                        400</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-4" value=600>
+                                                    <label class="invest-amount-label" for="iv-amount-4">$
+                                                        600</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-5" value=800>
+                                                    <label class="invest-amount-label" for="iv-amount-5">$
+                                                        800</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-6" value=1000>
+                                                    <label class="invest-amount-label" for="iv-amount-6">$
+                                                        1,000</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-7" value=1500>
+                                                    <label class="invest-amount-label" for="iv-amount-7">$
+                                                        1,500</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-8" value=2000>
+                                                    <label class="invest-amount-label" for="iv-amount-8">$
+                                                        2,000</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-9" value=4000>
+                                                    <label class="invest-amount-label" for="iv-amount-9">$
+                                                        4,000</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-10" value=5000>
+                                                    <label class="invest-amount-label" for="iv-amount-10">$
+                                                        5,000</label>
+                                                </div>
+                                                <div class="invest-amount-item">
+                                                    <input type="radio" class="invest-amount-control" name="iv-amount"
+                                                        id="iv-amount-11" value=10000>
+                                                    <label class="invest-amount-label" for="iv-amount-11">$
+                                                        10,0</label>
+                                                </div><br>
+                                                <div class="col-md-12">
+                                                    <span class="label text-dark">Note: This button only generate pin.
+                                                        Click on "Create Pin" button to create the generated pin.</span>
+                                                    <button onclick="set()" class="btn btn-dark btn-block">Generate
+                                                        Pin</button>
+                                                </div>
+                                            </div>
+                                        </div><!-- .invest-field -->
+                                        <% if(type != "" && heading != "" && message != ""){ %>
+                                        <div style="text-align: center;" class="text-danger alert alert-<%=type%>">
+                                            <strong><%=heading%></strong><br><%=message%>
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        </div>
+                                        <%}else{%>
+
+                                        <%}%>
+                                        <hr>
+                                        <form action="/131220generate-epin" method="POST">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <span class="label">Pin Value:</span>
+                                                    <input class="form-control" type="number" id="value"
+                                                        name="value" readonly><br>
+                                                    <!-- <input class="form-control" type="number" id="serial" name="serial" readonly> -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span class="label">Pin:</span>
+                                                    <input class="form-control" type="number" id="serial"
+                                                        name="serial" readonly><br>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button type="submit" id="create" class="btn btn-success btn-block">CREATE PIN</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!-- .col -->
+                                </div><!-- .row -->
+                            </div><!-- .nk-block -->
+
+                            <div class="nk-block">
+                                <div class="card card-bordered">
+                                    <div class="card-inner">
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Epin</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Used By:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <% pins.forEach(function(pin){%>
+                                                    <tr>
+                                                        <th class="count" scope="row"></th>
+                                                        <td><%= pin.pin %></td>
+                                                        <td><%= pin.value %></td>
+                                                        <%if(pin.status == false){%>
+                                                        <td class="text-success"><b>UNUSED</b></td>
+                                                        <%}%>
+                                                        <%if(pin.status == true){%>
+                                                        <td class="text-danger"><b>USED</b></td>
+                                                        <%}%>
+                                                        <%if(pin.user == null){%>
+                                                        <td class="text-success"><b>---</b></td>
+                                                        <%}%>
+                                                        <%if(pin.user != null){%>
+                                                        <td class="text-danger"><b><%= pin.user %></b></td>
+                                                        <%}%>
+                                                    </tr>
+                                                    <% }) %>
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                </div><!-- .card -->
+                            </div><!-- .nk-block -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content @e -->
+<!-- footer @s -->
+<div class="nk-footer">
+    <div class="container-fluid">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 Real Source Global Invesment Ltd. Designed by
+                <a href="#">GGDC</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="../assets/js/bundle.js?ver=1.4.0"></script>
+<script src="../assets/js/scripts.js?ver=1.4.0"></script>
+<script src="../assets/js/charts/gd-invest.js?ver=1.4.0"></script>
+</body>
+
+</html>
